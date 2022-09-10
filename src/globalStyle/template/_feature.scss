@@ -1,0 +1,39 @@
+.feature {
+    .container {
+        width: 560px;
+
+        h2 {
+            font-size: 4.8rem;
+            font-weight: 500;
+            color: #252525;
+            text-align: center;
+
+            span {
+                position: relative;
+                padding-bottom: 10px;
+                display: inline-block;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: -23px;
+                    left: 0;
+                    width: 70%;
+                    height: 39px;
+                    border: solid 3px #000;
+                    border-color: $secondary transparent transparent transparent;
+                    border-radius: 146%/100px 16px 0px 0px;
+                }
+            }
+        }
+
+        p {
+            font-size: 1.7rem;
+            color: #696969;
+            margin-top: 30px;
+            text-align: center;
+            word-spacing: 1px;
+            line-height: 1.7;
+        }
+    }
+}

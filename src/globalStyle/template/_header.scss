@@ -1,0 +1,134 @@
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    color: white;
+
+    .header-wrap {
+        width: 100%;
+        max-width: 1200px;
+        height: 80px;
+        margin: 0 auto;
+        padding: 10px 0;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .header__logo {
+            flex-grow: 1;
+
+            h2 {
+                font-size: 3rem;
+            }
+        }
+
+        .header__menu {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            flex-grow: 1;
+
+            .menu-link {
+                padding: 25px 17px;
+                font-size: 14px;
+                cursor: pointer;
+
+                &:hover {
+                    span {
+                        &::after {
+                            width: 100%;
+                            left: 0;
+                            right: auto;
+                        }
+                    }
+                }
+
+                span {
+                    position: relative;
+                    padding: 4px 0;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        left: auto;
+                        right: 0;
+                        bottom: 0px;
+                        width: 0;
+                        height: 2px;
+                        background-color: #ffc221;
+                        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+                    }
+                }
+            }
+        }
+
+        .header_loginBtn {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            flex-grow: 1;
+            flex-basis: 20%;
+
+            button {
+                height: 60px;
+                line-height: 60px;
+                padding: 0 45px;
+                font-size: 1.8rem;
+            }
+        }
+    }
+
+}
+
+.sticky {
+    position: fixed;
+    background-color: white;
+    box-shadow: $shadown;
+    animation: sticky 1s;
+
+    .header-wrap {
+        h2 {
+            color: $primary;
+        }
+
+        .header__menu {
+            .menu-link {
+                color: black;
+
+                &:hover {
+                    color: $primary;
+                }
+
+                span {
+                    &::after {
+                        background-color: $primary;
+                    }
+                }
+            }
+        }
+
+        .header_loginBtn {
+            button {
+                height: 40px;
+                line-height: 40px;
+                padding: 0 16px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@keyframes sticky {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

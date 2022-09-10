@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    height: 100%;
+    min-height: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+}
+
+img {
+    max-width: 100%;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover {
+        color: inherit;
+    }
+}
+
+ul,
+p {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.btn {
+    color: #FFFFFF;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 16px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    box-shadow: 0 10px 24px rgb(0 0 0 / 42%);
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: $smooth;
+
+    &:hover {
+        background-position: right center;
+        transition: $smooth;
+    }
+}
+
+.btn--danger {
+    background: linear-gradient(90deg, #ff016d 0%, #fe5b34 50%, #ff016d 100%);
+    background-size: 200% 100%;
+    background-position: left center;
+}
+
+.btn--large {
+    height: 60px;
+    line-height: 60px;
+    padding: 0 45px;
+    font-size: 1.8rem;
+}

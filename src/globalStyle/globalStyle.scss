@@ -1,0 +1,12 @@
+// helpers
+@import './helpers/variables.scss';
+// vendors
+// base
+@import './basic/reset.scss';
+// components
+// pages
+//template
+@import './template/homeTemplate.scss';
+@import './template/header';
+@import './template/slider';
+@import './template/feature';
