@@ -1,9 +1,11 @@
 // helpers
 @import './helpers/variables.scss';
 // vendors
+@import 'aos/dist/aos.css';
 // base
 @import './basic/reset.scss';
 // components
+@import './component/animation';
 // pages
 //template
 @import './template/homeTemplate.scss';
