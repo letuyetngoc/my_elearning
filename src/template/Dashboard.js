@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { Title, TitleComponent, TitleContent, TitleMark } from '../components/Text'
 
 export default function Dashboard() {
@@ -15,7 +16,9 @@ export default function Dashboard() {
                         <div className='item-img'>
                             <img src="https://htmldemo.net/edumall/assets/images/student-dashboard-preview.png" alt="..." />
                         </div>
-                        <button className='btn btn__dashboard'>Login as Student</button>
+                        <Link to='/dashboardStudent'>
+                            <button className='btn btn__dashboard'>Login as Student</button>
+                        </Link>
                     </div>
                     <div className='dashboard__item'>
                         <TitleComponent className='item-title'>

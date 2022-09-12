@@ -1,0 +1,105 @@
+.dashboard {
+    .dashboard__nav {
+        position: relative;
+        width: 320px;
+        height: 100%;
+        box-shadow: 0 2px 15px rgb(51 51 51 / 5%);
+
+        .dashboard__nav-logo {
+            padding: 31px 40px 43px;
+            font-size: 3rem;
+            font-weight: 500;
+            color: $primary;
+        }
+
+        ul {
+            padding: 0 20px;
+
+            li {
+                a {
+                    padding: 13px 20px 13px 60px;
+                    display: block;
+                    position: relative;
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    color: #252525;
+                    border-radius: 5px;
+                    line-height: 26px;
+                    border-radius: 8px;
+                    cursor: pointer;
+
+                    .icon {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: 20px;
+                        color: $primary;
+                    }
+
+                    .text {}
+
+                    &:hover {
+                        background-color: #edf0f9;
+                    }
+
+                    &.active {
+                        background-color: $primary;
+                        color: white;
+
+                        .icon {
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    .dashboard__header {
+        position: absolute;
+        top: 0;
+        left: 320px;
+        width: calc(100% - 320px);
+        height: 100px;
+        box-shadow: 0 2px 15px rgb(51 51 51 / 5%);
+        padding: 30px 20px;
+
+        display: flex;
+        align-items: center;
+
+        .header-avatar {
+            width: 50px;
+            height: 50px;
+            background: $primary;
+            line-height: 50px;
+            color: white;
+            text-align: center;
+            font-size: 3rem;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .header-user {
+            line-height: 1.5;
+
+            .header-user__name {
+                font-size: 1.5rem;
+                font-weight: 500;
+            }
+
+            .header-user__email {
+                font-size: 1.1rem;
+            }
+        }
+    }
+
+    .dashboard__content {
+        position: absolute;
+        top: 100px;
+        left: 320px;
+        height: 100%;
+        width: calc(100% - 320px);
+        background-color: #f8f8f8;
+    }
+}
