@@ -2,13 +2,21 @@
 @import './helpers/variables.scss';
 // vendors
 @import 'aos/dist/aos.css';
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/scrollbar';
 // base
 @import './basic/reset.scss';
 // components
 @import './component/animation';
+@import './component/text';
 // pages
+@import './page/listCourseItem';
 //template
 @import './template/homeTemplate.scss';
 @import './template/header';
 @import './template/slider';
 @import './template/feature';
+@import './template/courses';
+@import './template/dashboard';

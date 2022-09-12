@@ -1,17 +1,20 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { Title, TitleComponent, TitleContent, TitleMark } from '../components/Text'
 
 export default function Feature() {
     return (
-        <div className='feature'>
+        <div id='feature'>
             <div className='container'>
-                <div className='feature__title' data-aos="fade-up" data-aos-duration="1000" >
-                    <h2 >
-                        <>Why </>
-                        <span> Choose </span>
-                        <> MyElearning</>
-                    </h2>
-                    <p >MyElearning provides full of features for creating a perfect eLearning platform. Built with utility in mind, users are able to manage their education website with ease by EduMall's core features.</p>
+                <div data-aos="fade-up" data-aos-duration="1000" >
+                    <TitleComponent>
+                        <Title>Why</Title>
+                        <TitleMark>Choose</TitleMark>
+                        <Title>MyElearning</Title>
+                        <TitleContent>
+                            MyElearning provides full of features for creating a perfect eLearning platform. Built with utility in mind, users are able to manage their education website with ease by EduMall's core features.
+                        </TitleContent>
+                    </TitleComponent>
                 </div>
                 <div className='feature__wrapper'>
                     <div className='feature__list' data-aos="fade-up" data-aos-duration="1000">
@@ -130,10 +133,8 @@ export default function Feature() {
                     </div>
                 </div>
             </div>
-            <br />
-            <br />
-            <br />
-            <br />
+            <div className='feature__shape-wrap'>
+            </div>
         </div>
     )
 }

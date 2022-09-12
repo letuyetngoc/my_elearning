@@ -21,17 +21,17 @@ function Header() {
                     </div>
                     <ul className='header__menu'>
                         <li className='menu-item'>
-                            <a className='menu-link'>
+                            <a href='#feature' className='menu-link'>
                                 <span>Feature</span>
                             </a>
                         </li>
                         <li className='menu-item'>
                             <a className='menu-link'>
-                                <span>Demo</span>
+                                <span>Dashboard</span>
                             </a>
                         </li>
                         <li className='menu-item'>
-                            <a className='menu-link'>
+                            <a href='#courses' className='menu-link'>
                                 <span>Courses</span>
                             </a>
                         </li>

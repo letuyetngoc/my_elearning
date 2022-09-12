@@ -1,0 +1,54 @@
+.titleComponent {
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.title {
+    display: inline-block;
+    font-size: 5rem;
+    font-weight: 500;
+    color: #252525;
+    text-align: center;
+
+}
+
+.titleMark {
+    display: inline-block;
+    font-size: 5rem;
+    font-weight: 500;
+    color: #252525;
+
+    text-align: center;
+    position: relative;
+    padding-bottom: 10px;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: -23px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
+        height: 39px;
+        border: solid 3px #000;
+        border-color: $secondary transparent transparent transparent;
+        border-radius: 146%/100px 16px 0px 0px;
+    }
+}
+
+.titleMarkNumber {
+    @extend .titleMark;
+    font-size: 7.2rem;
+    font-weight: 700;
+    color: #0071dc;
+}
+
+.titleContent {
+    font-size: 1.7rem;
+    color: #696969;
+    margin: 30px 0;
+    text-align: center;
+    word-spacing: 1px;
+    line-height: 1.7;
+}
