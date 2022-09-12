@@ -1,0 +1,34 @@
+.footer {
+    background-color: #031f42;
+
+    .container {
+        padding: 100px 0;
+        text-align: center;
+
+        h5 {
+            color: #ffc221;
+            font-size: 28px;
+            font-weight: 500;
+            line-height: 1.42;
+            margin-bottom: 33px;
+        }
+
+        h2 {
+            font-size: 48px;
+            font-weight: 500;
+            line-height: 1.3;
+            color: #FFFFFF;
+        }
+
+        .btn__footer {
+            margin-top: 75px;
+            background: linear-gradient(90deg, #00c0ff 0%, #5558ff 50%, #00c0ff 100%);
+            background-position: left center;
+            background-size: 200% 100%;
+
+            &:hover {
+                background-position: right center;
+            }
+        }
+    }
+}

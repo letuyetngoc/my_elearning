@@ -17,7 +17,7 @@ function Header() {
             <div className={`header ${isSticyMenu && 'sticky'}`}>
                 <div className='header-wrap'>
                     <div className='header__logo'>
-                        <h2>My Elearning</h2>
+                        <a href='#'>My Elearning</a>
                     </div>
                     <ul className='header__menu'>
                         <li className='menu-item'>
@@ -26,13 +26,13 @@ function Header() {
                             </a>
                         </li>
                         <li className='menu-item'>
-                            <a className='menu-link'>
-                                <span>Dashboard</span>
+                            <a href='#courses' className='menu-link'>
+                                <span>Courses</span>
                             </a>
                         </li>
                         <li className='menu-item'>
-                            <a href='#courses' className='menu-link'>
-                                <span>Courses</span>
+                            <a href='#dashboard' className='menu-link'>
+                                <span>Dashboard</span>
                             </a>
                         </li>
                     </ul>

@@ -20,8 +20,9 @@
         .header__logo {
             flex-grow: 1;
 
-            h2 {
+            a {
                 font-size: 3rem;
+                font-weight: 500;
             }
         }
 
@@ -92,7 +93,7 @@
     animation: sticky 1s;
 
     .header-wrap {
-        h2 {
+        a {
             color: $primary;
         }
 

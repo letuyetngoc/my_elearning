@@ -7,7 +7,7 @@ export default function ListCourseItem() {
 
     return (
         <div className='listCourseItem'>
-            <div className='container'>
+            <div className='container' data-aos="fade-up" data-aos-duration="1000">
                 <div className='listCourseItem__title'>
                     <div className='title-content'>
                         <TitleComponent className='title-content__wrap'>

@@ -45,6 +45,15 @@
         position: relative;
 
         .list-item {
+            cursor: pointer;
+            transition: $smooth;
+
+            &:hover {
+                transform: scale(1.05);
+                transition: $smooth;
+
+            }
+
             .list-item__img {
                 img {
                     border-radius: 10px;
@@ -67,6 +76,7 @@
             height: 100%;
             overflow: visible;
             padding-bottom: 80px;
+            overflow: hidden;
         }
 
         .swiper-slide {
