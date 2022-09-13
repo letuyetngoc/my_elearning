@@ -1,6 +1,6 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
-import { Title, TitleComponent, TitleContent, TitleMark } from '../components/Text'
+import { Title, TitleComponent, TitleContent, TitleMark } from '../../components/Text'
+import { BsHouseFill } from 'react-icons/bs'
 
 export default function Feature() {
     return (
@@ -22,31 +22,31 @@ export default function Feature() {
                             <ul >
                                 <li>
                                     <div className='icon'>
-                                        <FontAwesomeIcon icon="house" size="lg" />
+                                        <BsHouseFill />
                                     </div>
                                     <div className='text'>9 Unique Home Pages</div>
                                 </li>
                                 <li>
                                     <div className='icon'>
-                                        <FontAwesomeIcon icon="house" size="lg" />
+                                        <BsHouseFill />
                                     </div>
                                     <div className='text'>78+ HTML Page</div>
                                 </li>
                                 <li>
                                     <div className='icon'>
-                                        <FontAwesomeIcon icon="house" size="lg" />
+                                        <BsHouseFill />
                                     </div>
                                     <div className='text'>Bootstrap 5 Framework</div>
                                 </li>
                                 <li>
                                     <div className='icon'>
-                                        <FontAwesomeIcon icon="house" size="lg" />
+                                        <BsHouseFill />
                                     </div>
                                     <div className='text'>Include SCSS</div>
                                 </li>
                                 <li>
                                     <div className='icon'>
-                                        <FontAwesomeIcon icon="house" size="lg" />
+                                        <BsHouseFill />
                                     </div>
                                     <div className='text'>Google Fonts</div>
                                 </li>
@@ -57,31 +57,31 @@ export default function Feature() {
                             <ul>
                                 <li>
                                     <div className='icon'>
-                                        <FontAwesomeIcon icon="house" size="lg" />
+                                        <BsHouseFill />
                                     </div>
                                     <div className='text'>Pixel-perfect & Responsive Layouts</div>
                                 </li>
                                 <li>
                                     <div className='icon'>
-                                        <FontAwesomeIcon icon="house" size="lg" />
+                                        <BsHouseFill />
                                     </div>
                                     <div className='text'>CSS3 Animations</div>
                                 </li>
                                 <li>
                                     <div className='icon'>
-                                        <FontAwesomeIcon icon="house" size="lg" />
+                                        <BsHouseFill />
                                     </div>
                                     <div className='text'>Modern & Unique Design</div>
                                 </li>
                                 <li>
                                     <div className='icon'>
-                                        <FontAwesomeIcon icon="house" size="lg" />
+                                        <BsHouseFill />
                                     </div>
                                     <div className='text'>Cross-browser Compatibility</div>
                                 </li>
                                 <li>
                                     <div className='icon'>
-                                        <FontAwesomeIcon icon="house" size="lg" />
+                                        <BsHouseFill />
                                     </div>
                                     <div className='text'>Documentation included</div>
                                 </li>
@@ -92,31 +92,31 @@ export default function Feature() {
                             <ul>
                                 <li>
                                     <div className='icon'>
-                                        <FontAwesomeIcon icon="house" size="lg" />
+                                        <BsHouseFill />
                                     </div>
                                     <div className='text'>Dedicated Support</div>
                                 </li>
                                 <li>
                                     <div className='icon'>
-                                        <FontAwesomeIcon icon="house" size="lg" />
+                                        <BsHouseFill />
                                     </div>
                                     <div className='text'>Tested with W3C validator</div>
                                 </li>
                                 <li>
                                     <div className='icon'>
-                                        <FontAwesomeIcon icon="house" size="lg" />
+                                        <BsHouseFill />
                                     </div>
                                     <div className='text'>Well Commented Code</div>
                                 </li>
                                 <li>
                                     <div className='icon'>
-                                        <FontAwesomeIcon icon="house" size="lg" />
+                                        <BsHouseFill />
                                     </div>
                                     <div className='text'>Font Awesome Pro</div>
                                 </li>
                                 <li>
                                     <div className='icon'>
-                                        <FontAwesomeIcon icon="house" size="lg" />
+                                        <BsHouseFill />
                                     </div>
                                     <div className='text'>Edumall Custom Icon</div>
                                 </li>

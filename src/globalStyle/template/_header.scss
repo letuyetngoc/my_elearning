@@ -75,6 +75,12 @@
             flex-grow: 1;
             flex-basis: 20%;
 
+            .header-user {
+                font-size: 2rem;
+                font-weight: 500;
+                cursor: pointer;
+            }
+
             button {
                 height: 60px;
                 line-height: 60px;

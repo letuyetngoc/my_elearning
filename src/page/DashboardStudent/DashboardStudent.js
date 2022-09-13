@@ -1,16 +1,25 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
+import { useEffect } from 'react'
+import { BsHouseFill } from 'react-icons/bs'
+import { Link } from 'react-router-dom'
 
 export default function DashboardStudent() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+
     return (
         <div className='dashboard'>
             <div className='dashboard__nav'>
-                <div className='dashboard__nav-logo'>MyElearning</div>
+                <div className='dashboard__nav-logo'>
+                    <Link to='/'>MyElearning</Link>
+                </div>
                 <ul>
                     <li>
                         <a className='active'>
                             <span className='icon'>
-                                <FontAwesomeIcon icon="house" size="lg" />
+                                <BsHouseFill />
                             </span>
                             <span className='text'>Dashboard</span>
                         </a>
@@ -18,7 +27,7 @@ export default function DashboardStudent() {
                     <li>
                         <a>
                             <span className='icon'>
-                                <FontAwesomeIcon icon="user" size="lg" />
+                                <BsHouseFill />
                             </span>
                             <span className='text'>My Profile</span>
                         </a>
@@ -26,7 +35,7 @@ export default function DashboardStudent() {
                     <li>
                         <a>
                             <span className='icon'>
-                                <FontAwesomeIcon icon="house" size="lg" />
+                                <BsHouseFill />
                             </span>
                             <span className='text'>Dashboard</span>
                         </a>
@@ -35,7 +44,7 @@ export default function DashboardStudent() {
             </div>
             <div className='dashboard__header'>
                 <div className='header-avatar'>
-                    <FontAwesomeIcon icon="user" />
+                    <BsHouseFill />
                 </div>
                 <div className='header-user'>
                     <div className='header-user__name'>Le Tuyet Ngoc</div>

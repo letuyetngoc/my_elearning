@@ -4,10 +4,16 @@ import App from './App';
 import GlobalStyle from './globalStyle/GlobalStyle';
 import reportWebVitals from './reportWebVitals';
 
+//setup redux
+import { store } from './redux/Store'
+import { Provider } from 'react-redux'
+
 ReactDOM.render(
-  <GlobalStyle>
-    <App />
-  </GlobalStyle>
+  <Provider store={store}>
+    <GlobalStyle>
+      <App />
+    </GlobalStyle>
+  </Provider>
   ,
   document.getElementById('root')
 );

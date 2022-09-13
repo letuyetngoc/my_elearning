@@ -1,7 +1,12 @@
 import React, { memo, useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { USER_LOGIN } from '../util/setting'
+
+const userLogin = JSON.parse(localStorage.getItem(USER_LOGIN))
 
 function Header() {
     const [isSticyMenu, setIsStickyMenu] = useState(false)
+    const navigate = useNavigate()
 
     useEffect(() => {
         const handleCroll = () => {
@@ -17,7 +22,7 @@ function Header() {
             <div className={`header ${isSticyMenu && 'sticky'}`}>
                 <div className='header-wrap'>
                     <div className='header__logo'>
-                        <a href='#'>My Elearning</a>
+                        <a href='#' >My Elearning</a>
                     </div>
                     <ul className='header__menu'>
                         <li className='menu-item'>
@@ -37,7 +42,12 @@ function Header() {
                         </li>
                     </ul>
                     <div className='header_loginBtn'>
-                        <button className='btn btn--danger'>Sign in</button>
+                        {userLogin ? <a onClick={() => navigate('/dashboardStudent')} >
+                            <div className='header-user'>Hello {userLogin.hoTen} !</div>
+                        </a> :
+                            <a onClick={() => navigate('/login')}>
+                                <button className='btn btn--danger'>Sign in</button>
+                            </a>}
                     </div>
                 </div>
             </div>

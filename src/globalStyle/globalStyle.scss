@@ -1,5 +1,6 @@
 // helpers
 @import './helpers/variables.scss';
+@import './helpers/mixin';
 // vendors
 @import 'aos/dist/aos.css';
 @import 'swiper/css';
@@ -15,6 +16,7 @@
 @import './page/listCourseItem';
 @import './page/dashboardStudent';
 @import './page/login';
+@import './page/register';
 //template
 @import './template/homeTemplate.scss';
 @import './template/header';

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Title, TitleComponent, TitleContent, TitleMark } from '../components/Text'
+import { Title, TitleComponent, TitleContent, TitleMark } from '../../components/Text'
 
 export default function Dashboard() {
     return (

@@ -1,9 +1,14 @@
 import React from 'react'
+import { useEffect } from 'react';
 import { Pagination, Navigation } from "swiper";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Title, TitleComponent, TitleContent, TitleMarkNumber } from '../../components/Text'
 
 export default function ListCourseItem() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
     return (
         <div className='listCourseItem'>
