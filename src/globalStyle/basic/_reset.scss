@@ -52,6 +52,17 @@ strong {
     width: 100%;
 }
 
+.containerDashboard {
+    padding: 44px 15px;
+}
+
+.contentDashboard {
+    border-radius: 5px;
+    background: #FFFFFF;
+    border: 1px solid #eee;
+    padding: 30px;
+}
+
 .textTruncate {
     word-break: break-all;
     text-overflow: ellipsis;
@@ -94,6 +105,12 @@ strong {
         background-color: $primary ;
         color: white;
     }
+}
+
+.btn--primary {
+    background: linear-gradient(90deg, #00c0ff 0%, #5558ff 50%, #00c0ff 100%);
+    background-size: 200% 100%;
+    background-position: left center;
 }
 
 .btn--large {

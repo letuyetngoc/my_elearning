@@ -20,7 +20,7 @@ export default function Dashboard() {
                         <div className='item-img'>
                             <img src="https://htmldemo.net/edumall/assets/images/student-dashboard-preview.png" alt="..." />
                         </div>
-                        <Link to='/dashboardStudent'>
+                        <Link to='/dashboardStudent/profile'>
                             <button className='btn btn__dashboard'>Login as Student</button>
                         </Link>
                     </div>

@@ -42,7 +42,7 @@ function Header() {
                         </li>
                     </ul>
                     <div className='header_loginBtn'>
-                        {userLogin ? <a onClick={() => navigate('/dashboardStudent')} >
+                        {userLogin ? <a onClick={() => navigate('/dashboardStudent/profile')} >
                             <div className='header-user'>Hello {userLogin.hoTen} !</div>
                         </a> :
                             <a onClick={() => navigate('/login')}>

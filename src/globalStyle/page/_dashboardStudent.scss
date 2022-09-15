@@ -1,9 +1,38 @@
 .dashboard {
+    position: relative;
+
+    .overlay {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 36%);
+        z-index: 100;
+
+        &.active {
+            display: initial;
+        }
+    }
+
     .dashboard__nav {
-        position: relative;
+        position: fixed;
         width: 320px;
-        height: 100%;
+        height: 100vh;
         box-shadow: 0 2px 15px rgb(51 51 51 / 5%);
+        z-index: 1000;
+        background-color: white;
+
+        @include Responesive(LG) {
+            transform: translateX(-320px);
+            transition: all 0.4s ease;
+
+            &.active {
+                transform: translateX(0);
+                transition: all 0.4s ease;
+            }
+        }
 
         .dashboard__nav-logo {
             padding: 31px 40px 43px;
@@ -11,6 +40,24 @@
             font-weight: 500;
             color: $primary;
             cursor: pointer;
+
+            display: flex;
+            align-items: center;
+
+            .logo-btnClose {
+                display: none;
+                margin-right: 20px;
+                height: 30px;
+                line-height: 30px;
+
+                &:hover {
+                    color: $secondary;
+                }
+
+                @include Responesive(LG) {
+                    display: inline-block;
+                }
+            }
         }
 
         ul {
@@ -65,15 +112,38 @@
         height: 100px;
         box-shadow: 0 2px 15px rgb(51 51 51 / 5%);
         padding: 30px 20px;
+        z-index: 99;
+        background-color: white;
 
         display: flex;
         align-items: center;
+
+        @include Responesive(LG) {
+            width: 100%;
+            left: 0;
+        }
+
+        .header-btnToggle {
+            display: none;
+            font-size: 3rem;
+            color: $primary;
+            margin-right: 20px;
+            cursor: pointer;
+
+            &:hover {
+                color: $secondary;
+            }
+
+            @include Responesive(LG) {
+                display: initial;
+            }
+        }
 
         .header-avatar {
             width: 50px;
             height: 50px;
             background: $primary;
-            line-height: 50px;
+            line-height: 53px;
             color: white;
             text-align: center;
             font-size: 3rem;
@@ -99,8 +169,14 @@
         position: absolute;
         top: 100px;
         left: 320px;
-        height: 100%;
+        min-height: calc(100vh - 100px);
+        max-height: 100vh;
         width: calc(100% - 320px);
-        background-color: #f8f8f8;
+        background-color: #f2f4fa;
+
+        @include Responesive(LG) {
+            width: 100%;
+            left: 0;
+        }
     }
 }
