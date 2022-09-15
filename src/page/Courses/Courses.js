@@ -1,12 +1,17 @@
 import React, { memo, useEffect } from 'react'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { Title, TitleComponent, TitleContent, TitleMark, TitleMarkNumber } from '../../components/Text'
+import { handleClickCourse } from '../../redux/actions/quanLiKhoaHocAction'
 import { quanLiKhoaHocService } from '../../service/QuanLiKhoaHocService'
 
 function Courses() {
     const [arrCourses, setArrCourses] = useState('')
-    const navigate = useNavigate()
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        window.scrollTo(0, 800)
+    }, [])
 
     useEffect(async () => {
         try {
@@ -18,16 +23,7 @@ function Courses() {
         }
     }, [])
 
-    const handleClickCourse = async (maDanhMuc) => {
-        try {
-            const result = await quanLiKhoaHocService.LayKhoaHocTheoDanhMuc(maDanhMuc)
-            console.log('result', result)
-            const { data } = result
-            navigate(`/course:${maDanhMuc}`)
-        } catch (error) {
-            console.log('error', error)
-        }
-    }
+
 
     return (
         <div id='courses'>
@@ -41,7 +37,10 @@ function Courses() {
                 </div>
                 <div className='courses__list' data-aos="fade-up" data-aos-duration="1000">
                     {arrCourses && arrCourses.map((course, index) => {
-                        return <div className='list-item' key={index} onClick={() => handleClickCourse(course.maDanhMuc)}>
+                        return <div className='list-item' key={index} onClick={() => {
+                            localStorage.setItem('tenDanhMuc', course.tenDanhMuc)
+                            dispatch(handleClickCourse(course.maDanhMuc))
+                        }}>
                             <div className='list-item__img'>
                                 <img src='https://htmldemo.net/edumall/assets/images/home-main-preview.jpg' />
                             </div>

@@ -3,10 +3,6 @@
 @import './helpers/mixin';
 // vendors
 @import 'aos/dist/aos.css';
-@import 'swiper/css';
-@import 'swiper/css/navigation';
-@import 'swiper/css/pagination';
-@import 'swiper/css/scrollbar';
 // base
 @import './basic/reset.scss';
 // components
@@ -17,6 +13,8 @@
 @import './page/dashboardStudent';
 @import './page/login';
 @import './page/register';
+@import './page/courseItemDetail';
+
 //template
 @import './template/homeTemplate.scss';
 @import './template/header';

@@ -11,5 +11,8 @@ class QuanLiKhoaHocService extends BaseService {
     LayKhoaHocTheoDanhMuc = (maDanhMuc) => {
         return this.get(`api/QuanLyKhoaHoc/LayKhoaHocTheoDanhMuc?maDanhMuc=${maDanhMuc}&MaNhom=${GROUP}`)
     }
+    LayThongTinKhoaHoc = (maKhoaHoc) => {
+        return this.get(`api/QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=${maKhoaHoc}`)
+    }
 }
 export const quanLiKhoaHocService = new QuanLiKhoaHocService()

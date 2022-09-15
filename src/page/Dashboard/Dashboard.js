@@ -1,8 +1,12 @@
 import React from 'react'
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Title, TitleComponent, TitleContent, TitleMark } from '../../components/Text'
 
 export default function Dashboard() {
+    useEffect(() => {
+        window.scrollTo(0, 800)
+    }, [])
     return (
         <div id='dashboard'>
             <div className='container'>

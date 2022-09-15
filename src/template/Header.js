@@ -22,23 +22,23 @@ function Header() {
             <div className={`header ${isSticyMenu && 'sticky'}`}>
                 <div className='header-wrap'>
                     <div className='header__logo'>
-                        <a href='#' >My Elearning</a>
+                        <Link to='/home'>My Elearning</Link>
                     </div>
                     <ul className='header__menu'>
                         <li className='menu-item'>
-                            <a href='#feature' className='menu-link'>
+                            <Link to='/feature' className='menu-link'>
                                 <span>Feature</span>
-                            </a>
+                            </Link>
                         </li>
                         <li className='menu-item'>
-                            <a href='#courses' className='menu-link'>
+                            <Link to='/courses' className='menu-link'>
                                 <span>Courses</span>
-                            </a>
+                            </Link>
                         </li>
                         <li className='menu-item'>
-                            <a href='#dashboard' className='menu-link'>
+                            <Link to='/dashboard' className='menu-link'>
                                 <span>Dashboard</span>
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                     <div className='header_loginBtn'>

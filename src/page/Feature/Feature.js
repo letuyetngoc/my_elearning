@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Title, TitleComponent, TitleContent, TitleMark } from '../../components/Text'
 import { BsHouseFill } from 'react-icons/bs'
 
 export default function Feature() {
+    useEffect(() => {
+        window.scrollTo(0, 800)
+    }, [])
     return (
         <div id='feature'>
             <div className='container'>

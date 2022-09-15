@@ -1,13 +1,18 @@
 import React from 'react'
 import { useEffect } from 'react';
-import { Pagination, Navigation } from "swiper";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import { Title, TitleComponent, TitleContent, TitleMarkNumber } from '../../components/Text'
+import { layThongTinKhoaHocAction } from '../../redux/actions/quanLiKhoaHocAction';
+
+
 
 export default function ListCourseItem() {
+    const dispatch = useDispatch()
+    const { arrCourseItem } = useSelector(state => state.QuanLiKhoaHocReducer)
 
     useEffect(() => {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 800)
     }, [])
 
     return (
@@ -16,93 +21,31 @@ export default function ListCourseItem() {
                 <div className='listCourseItem__title'>
                     <div className='title-content'>
                         <TitleComponent className='title-content__wrap'>
-                            <TitleMarkNumber className='title-content__number'>06+</TitleMarkNumber>
+                            <TitleMarkNumber className='title-content__number'>{arrCourseItem.length}+</TitleMarkNumber>
                             <br />
-                            <Title className='title-content__title textTruncate'>Frontend Courses </Title>
-                            <TitleContent className='title-content__decs '>Users can choose from our 06+ different course listing layouts for your eLearning platform</TitleContent>
+                            <Title className='title-content__title textTruncate'>{localStorage.getItem('tenDanhMuc')}</Title>
+                            <TitleContent className='title-content__decs '>Users can choose from our {arrCourseItem.length}+ different course listing layouts for your eLearning platform</TitleContent>
                         </TitleComponent>
                     </div>
                     <div className='title-img'>
                         <img src="https://htmldemo.net/edumall/assets/images/course-laptop-screenshot.png" alt="photo" />
                     </div>
                 </div>
+                <div className='listCourseItem__list'>
+                    {arrCourseItem && arrCourseItem.map((course, index) => {
+                        return (
+                            <div className='list-item' key={index} onClick={() => dispatch(layThongTinKhoaHocAction(course.maKhoaHoc))}>
+                                <div className='list-item__img'>
+                                    <img src="https://htmldemo.net/edumall/assets/images/layout/course-layout-05.jpg" alt="" />
+                                </div>
+                                <div className='list-item__text'>
+                                    <h3 className='textTruncate'>{course.tenKhoaHoc}</h3>
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
-            <div className='listCourseItem__list'>
-                <Swiper
-                    slidesPerView={5}
-                    spaceBetween={30}
-                    loop={true}
-                    pagination={{
-                        type: "fraction",
-                    }}
-                    navigation={true}
-                    modules={[Pagination, Navigation]}
-                    className="mySwiper"
-                >
-                    <SwiperSlide>
-                        <div className='list-item'>
-                            <div className='list-item__img'>
-                                <img src="https://htmldemo.net/edumall/assets/images/layout/course-layout-05.jpg" alt="" />
-                            </div>
-                            <div className='list-item__text'>
-                                <h3 className='textTruncate'>Fronteand 70</h3>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='list-item'>
-                            <div className='list-item__img'>
-                                <img src="https://htmldemo.net/edumall/assets/images/layout/course-layout-05.jpg" alt="" />
-                            </div>
-                            <div className='list-item__text'>
-                                <h3 className='textTruncate'>Fronteand 70</h3>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='list-item'>
-                            <div className='list-item__img'>
-                                <img src="https://htmldemo.net/edumall/assets/images/layout/course-layout-05.jpg" alt="" />
-                            </div>
-                            <div className='list-item__text'>
-                                <h3 className='textTruncate'>Fronteand 70</h3>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='list-item'>
-                            <div className='list-item__img'>
-                                <img src="https://htmldemo.net/edumall/assets/images/layout/course-layout-05.jpg" alt="" />
-                            </div>
-                            <div className='list-item__text'>
-                                <h3 className='textTruncate'>Fronteand 70</h3>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='list-item'>
-                            <div className='list-item__img'>
-                                <img src="https://htmldemo.net/edumall/assets/images/layout/course-layout-05.jpg" alt="" />
-                            </div>
-                            <div className='list-item__text'>
-                                <h3 className='textTruncate'>Fronteand 70</h3>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <div className='list-item'>
-                            <div className='list-item__img'>
-                                <img src="https://htmldemo.net/edumall/assets/images/layout/course-layout-05.jpg" alt="" />
-                            </div>
-                            <div className='list-item__text'>
-                                <h3 className='textTruncate'>Fronteand 70</h3>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-
-
-                </Swiper>
-            </div>
-        </div>
+        </div >
     )
 }

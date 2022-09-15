@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import Footer from './Footer'
 import Header from './Header'
+import Slider from './Slider'
 
 export default function HomeTemplate({ Component }) {
     useEffect(() => {
@@ -9,6 +10,7 @@ export default function HomeTemplate({ Component }) {
     return (
         <div className='homeTemplate'>
             <Header />
+            <Slider />
             {Component}
             <Footer />
         </div>
