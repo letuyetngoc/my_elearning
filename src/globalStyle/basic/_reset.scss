@@ -8,12 +8,22 @@
     box-sizing: border-box;
 }
 
-html {
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: inherit;
+    color: inherit;
+}
+
+html,
+body {
     scroll-behavior: smooth;
     height: 100%;
     min-height: 100%;
-    font-family: 'Poppins', sans-serif;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
     font-size: 10px;
 }
 
@@ -54,6 +64,7 @@ strong {
 
 .containerDashboard {
     padding: 44px 15px;
+    background-color: #eee;
 }
 
 .contentDashboard {

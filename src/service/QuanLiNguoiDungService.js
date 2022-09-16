@@ -1,3 +1,4 @@
+import { GROUP } from "../util/setting";
 import BaseService from "./BaseService";
 
 class QuanLiNguoiDungService extends BaseService {
@@ -18,6 +19,12 @@ class QuanLiNguoiDungService extends BaseService {
     }
     LayDanhSachLoaiNguoiDung = () => {
         return this.get('api/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung')
+    }
+    LayDanhSachNguoiDung = () => {
+        return this.get(`api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=${GROUP}`)
+    }
+    TimKiemNguoiDung = (data) => {
+        return this.get(`api/QuanLyNguoiDung/TimKiemNguoiDung?MaNhom=GP01&tuKhoa=${data}`)
     }
 }
 export const quanLiNguoiDungService = new QuanLiNguoiDungService()

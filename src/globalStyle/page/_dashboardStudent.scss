@@ -172,7 +172,7 @@
         min-height: calc(100vh - 100px);
         max-height: 100vh;
         width: calc(100% - 320px);
-        background-color: #f2f4fa;
+        background-color: #eee;
 
         @include Responesive(LG) {
             width: 100%;

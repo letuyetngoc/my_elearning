@@ -6,7 +6,9 @@ import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
 import { Link, NavLink } from 'react-router-dom'
 import { useState } from 'react'
 import useAcountInfo from '../../hooks/useAcountInfo'
+
 export default function DashboardAdmin({ Component }) {
+
     const { taiKhoan, email } = useAcountInfo()
     const [activeClass, setActiveClass] = useState(false)
     const active = activeClass ? 'active' : ''
@@ -30,7 +32,7 @@ export default function DashboardAdmin({ Component }) {
                 </div>
                 <ul>
                     <li>
-                        <NavLink to='/dashboardStudent/inroll-courses' className={({ isActive }) => isActive ? 'active' : ''}>
+                        <NavLink to='/dashboardAdmin/listUsers' className={({ isActive }) => isActive ? 'active' : ''}>
                             <span className='icon'>
                                 <FaUserFriends />
                             </span>
@@ -38,7 +40,7 @@ export default function DashboardAdmin({ Component }) {
                         </NavLink>
                     </li>
                     <li>
-                        <Link to='/dashboardStudent' >
+                        <Link to='/dashboardAdmin' >
                             <span className='icon'>
                                 <BsHouseFill />
                             </span>

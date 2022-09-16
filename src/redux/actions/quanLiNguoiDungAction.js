@@ -1,6 +1,6 @@
 import { errorMessage, successMessage } from '../../components/message'
 import { quanLiNguoiDungService } from '../../service/QuanLiNguoiDungService'
-import { getInfoUser, getTypeOfUser } from '../features/QuanLiNguoiDungSlice'
+import { getInfoUser, getTypeOfUser, getAllUsers } from '../features/QuanLiNguoiDungSlice'
 
 export const getInfoUserAction = async (dispatch) => {
     try {
@@ -31,3 +31,23 @@ export const updateInfoUser = (data) => {
         }
     }
 }
+export const getAllUsersAction = async (dispatch) => {
+    try {
+        const result = await quanLiNguoiDungService.LayDanhSachNguoiDung()
+        const { data } = result || []
+        dispatch(getAllUsers(data))
+    } catch (error) {
+        console.log('error', error)
+    }
+}
+export const searchUsersAction = (dataSearch) => {
+    return async (dispatch) => {
+        try {
+            const result = await quanLiNguoiDungService.TimKiemNguoiDung(dataSearch)
+            const { data } = result || []
+            dispatch(getAllUsers(data))
+        } catch (error) {
+            console.log('error', error)
+        }
+    }
+} 

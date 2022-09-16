@@ -3,6 +3,7 @@
 @import './helpers/mixin';
 // vendors
 @import 'aos/dist/aos.css';
+@import 'antd/dist/antd.css';
 // base
 @import './basic/reset.scss';
 // components
@@ -17,6 +18,7 @@
 @import './page/profile';
 @import './page/updateInfo';
 @import './page/dashboardAdmin';
+@import './page/listUser';
 
 //template
 @import './template/homeTemplate.scss';
