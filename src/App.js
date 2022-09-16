@@ -23,6 +23,7 @@ import CourseItemDetail from "./page/CourseItemDetail/CourseItemDetail";
 import Profile from "./page/DashboardStudent/Profile";
 import InrollCourses from "./page/DashboardStudent/InrollCourses";
 import UpdateInfo from "./page/DashboardStudent/UpdateInfo";
+import DashboardAdmin from "./page/DashboardAdmin/DashboardAdmin";
 
 
 //aos
@@ -54,8 +55,7 @@ function App() {
         <Route path="/dashboardStudent/inroll-courses" element={<DashboardStudent Component={<InrollCourses />} />} />
         <Route path="/dashboardStudent/updateInfo" element={<DashboardStudent Component={<UpdateInfo />} />} />
 
-
-
+        <Route path="/dashboardAdmin" element={<DashboardAdmin />} />
 
         <Route path="" element={<HomeTemplate Component={<Home />} />} />
       </Routes>

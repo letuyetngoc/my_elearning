@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit'
 const QUAN_LI_NGUOI_DUNG = 'QUAN_LI_NGUOI_DUNG'
 
 const initialState = {
-    userInfo: {}
+    userInfo: {},
+    arrTypeOfUser: []
 }
 export const QuanLiNguoiDungSlice = createSlice({
     name: QUAN_LI_NGUOI_DUNG,
@@ -12,8 +13,11 @@ export const QuanLiNguoiDungSlice = createSlice({
         getInfoUser: (state, action) => {
             state.userInfo = action.payload
         },
+        getTypeOfUser: (state, action) => {
+            state.arrTypeOfUser = action.payload
+        }
 
     }
 })
-export const { getInfoUser } = QuanLiNguoiDungSlice.actions
+export const { getInfoUser, getTypeOfUser } = QuanLiNguoiDungSlice.actions
 export default QuanLiNguoiDungSlice.reducer

@@ -1,93 +1,110 @@
-import { useFormik } from 'formik';
+import { Formik, Field, Form } from 'formik';
 import React from 'react'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getInfoUserAction } from '../../redux/actions/quanLiNguoiDungAction';
+import { getInfoUserAction, getTypeOfUserAction, updateInfoUser } from '../../redux/actions/quanLiNguoiDungAction';
 import { GROUP } from '../../util/setting'
 import * as Yup from 'yup';
 
 export default function UpdateInfo() {
     const dispatch = useDispatch()
-    const { userInfo } = useSelector(state => state.QuanLiNguoiDungReducer)
+    const { userInfo, arrTypeOfUser } = useSelector(state => state.QuanLiNguoiDungReducer)
 
     useEffect(() => {
         dispatch(getInfoUserAction)
     }, [])
+    useEffect(() => {
+        dispatch(getTypeOfUserAction)
+    }, [])
 
-    const UpdateSchema = Yup.object().shape({
+    const validateForm = Yup.object().shape({
         taiKhoan: Yup.string()
             .min(2, 'Too Short!')
-            .max(50, 'Too Long!')
-            .required('Required'),
+            .max(20, 'Too Long!')
+            .required('Required!'),
         hoTen: Yup.string()
             .min(2, 'Too Short!')
-            .max(50, 'Too Long!')
+            .max(20, 'Too Long!')
             .required('Required'),
-        email: Yup.string().email('Invalid email').required('Required'),
+        email: Yup.string().email('Invalid email!').required('Required!'),
+        matKhau: Yup.string()
+            .required('Required!')
+            .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/, 'At least 8 characters, contain number, lowercase, uppercase!'),
+        soDT: Yup.string()
+            .required('Required!')
+            .matches(/^[0-9()-]+$/, 'Please enter number!'),
+        xacNhanMatKhau: Yup.string()
+            .required('Required!')
+            .oneOf([Yup.ref('matKhau'), null], 'Passwords must match!')
     });
-    const formik = useFormik({
-        enableReinitialize: true,
-        initialValues: {
-            taiKhoan: userInfo.taiKhoan,
-            matKhau: userInfo.matKhau,
-            xacNhanMatKhau: '',
-            hoTen: userInfo.hoTen,
-            soDT: userInfo.soDT,
-            maLoaiNguoiDung: userInfo.maLoaiNguoiDung,
-            maNhom: GROUP,
-            email: userInfo.email
-        },
-        validate: { UpdateSchema },
-        onSubmit: values => {
-            console.log('dfsd')
-            console.log('values', values)
-        },
-    });
-    console.log('formik', formik)
 
     return (
         <div className='updateInfo'>
             <div className='containerDashboard'>
                 <div className='contentDashboard'>
-                    <form onSubmit={formik.handleSubmit}>
-                        <div className='contentDashboard__list'>
-                            <div className='updateInfo__group'>
-                                <div className='updateInfo__group-item'>
-                                    <label>Account</label>
-                                    <input name='taiKhoan' id='taiKhoan' value={formik.values.taiKhoan || ''} onChange={formik.handleChange} />
+                    <Formik
+                        initialValues={{
+                            taiKhoan: userInfo.taiKhoan || '',
+                            matKhau: userInfo.matKhau || '',
+                            xacNhanMatKhau: '' || '',
+                            hoTen: userInfo.hoTen || '',
+                            soDT: userInfo.soDT || '',
+                            maLoaiNguoiDung: userInfo.maLoaiNguoiDung || '',
+                            maNhom: GROUP || '',
+                            email: userInfo.email || ''
+                        }}
+                        validationSchema={validateForm}
+                        onSubmit={(values) => {
+                            dispatch(updateInfoUser(values))
+                        }}
+                    >
+                        {({ errors, touched }) => (
+                            <Form >
+                                <div className='contentDashboard__list'>
+                                    <div className='updateInfo__group'>
+                                        <div className='updateInfo__group-item'>
+                                            <label>Account</label>
+                                            <Field name="taiKhoan" className='input' />
+                                            {errors.taiKhoan && touched.taiKhoan ? (<div className='textError'>{errors.taiKhoan}</div>) : null}
+                                        </div>
+                                        <div className='updateInfo__group-item'>
+                                            <label>Password</label>
+                                            <Field name="matKhau" className='input' type='password' autoComplete="on" />
+                                            {errors.matKhau && touched.matKhau ? (<div className='textError'>{errors.matKhau}</div>) : null}
+                                        </div>
+                                        <div className='updateInfo__group-item'>
+                                            <label>Confirm password</label>
+                                            <Field name="xacNhanMatKhau" className='input' type='password' autoComplete="on" />
+                                            {errors.xacNhanMatKhau && touched.xacNhanMatKhau ? (<div className='textError'>{errors.xacNhanMatKhau}</div>) : null}
+                                        </div>
+                                        <div className='updateInfo__group-item'>
+                                            <label>User name</label>
+                                            <Field name="hoTen" className='input' />
+                                            {errors.hoTen && touched.hoTen ? (<div className='textError'>{errors.hoTen}</div>) : null}
+                                        </div>
+                                    </div>
+                                    <div className='updateInfo__group'>
+                                        <div className='updateInfo__group-item'>
+                                            <label>Phone</label>
+                                            <Field name="soDT" className='input' />
+                                            {errors.soDT && touched.soDT ? (<div className='textError'>{errors.soDT}</div>) : null}
+                                        </div>
+                                        <div className='updateInfo__group-item'>
+                                            <label>Type of user</label>
+                                            <Field name="maLoaiNguoiDung" className='input' disabled />
+                                        </div>
+                                        <div className='updateInfo__group-item'>
+                                            <label>Email</label>
+                                            <Field name="email" className='input' />
+                                            {errors.email && touched.email ? (<div className='textError'>{errors.email}</div>) : null}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className='updateInfo__group-item'>
-                                    <label>Password</label>
-                                    <input type='password' name='matKhau' id='matKhau' value={formik.values.matKhau || ''} onChange={formik.handleChange} autoComplete="on" />
+                                <div className='contentDashboard__btn'>
+                                    <button type='submit' className='btn btn-update'>Update</button>
                                 </div>
-                                <div className='updateInfo__group-item'>
-                                    <label>Confirm password</label>
-                                    <input type='password' name='xacNhanMatKhau' id='xacNhanMatKhau' onChange={formik.handleChange} autoComplete="on" />
-                                </div>
-                                <div className='updateInfo__group-item'>
-                                    <label>User name</label>
-                                    <input name='hoTen' id='hoTen' value={formik.values.hoTen || ''} onChange={formik.handleChange} />
-                                </div>
-                            </div>
-                            <div className='updateInfo__group'>
-                                <div className='updateInfo__group-item'>
-                                    <label>Phone</label>
-                                    <input name='soDT' id='soDT' value={formik.values.soDT || ''} onChange={formik.handleChange} />
-                                </div>
-                                <div className='updateInfo__group-item'>
-                                    <label>Type of user</label>
-                                    <input name='maLoaiNguoiDung' id='maLoaiNguoiDung' value={formik.values.maLoaiNguoiDung || ''} onChange={formik.handleChange} />
-                                </div>
-                                <div className='updateInfo__group-item'>
-                                    <label>Email</label>
-                                    <input name='email' id='email' value={formik.values.email || ''} onChange={formik.handleChange} />
-                                </div>
-                            </div>
-                        </div>
-                        <div className='contentDashboard__btn'>
-                            <button type='submit' className='btn btn-update'>Update</button>
-                        </div>
-                    </form>
+                            </Form>)}
+                    </Formik>
                 </div>
             </div>
         </div >

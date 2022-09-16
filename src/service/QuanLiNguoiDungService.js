@@ -13,5 +13,11 @@ class QuanLiNguoiDungService extends BaseService {
     ThongTinTaiKhoan = () => {
         return this.post('api/QuanLyNguoiDung/ThongTinTaiKhoan')
     }
+    CapNhatThongTinNguoiDung = (data) => {
+        return this.put('api/QuanLyNguoiDung/CapNhatThongTinNguoiDung', data)
+    }
+    LayDanhSachLoaiNguoiDung = () => {
+        return this.get('api/QuanLyNguoiDung/LayDanhSachLoaiNguoiDung')
+    }
 }
 export const quanLiNguoiDungService = new QuanLiNguoiDungService()

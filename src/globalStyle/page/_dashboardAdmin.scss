@@ -1,0 +1,182 @@
+.dashboard {
+    position: relative;
+
+    .overlay {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 36%);
+        z-index: 100;
+
+        &.active {
+            display: initial;
+        }
+    }
+
+    .dashboard__nav {
+        position: fixed;
+        width: 320px;
+        height: 100vh;
+        box-shadow: 0 2px 15px rgb(51 51 51 / 5%);
+        z-index: 1000;
+        background-color: white;
+
+        @include Responesive(LG) {
+            transform: translateX(-320px);
+            transition: all 0.4s ease;
+
+            &.active {
+                transform: translateX(0);
+                transition: all 0.4s ease;
+            }
+        }
+
+        .dashboard__nav-logo {
+            padding: 31px 40px 43px;
+            font-size: 3rem;
+            font-weight: 500;
+            color: $primary;
+            cursor: pointer;
+
+            display: flex;
+            align-items: center;
+
+            .logo-btnClose {
+                display: none;
+                margin-right: 20px;
+                height: 30px;
+                line-height: 30px;
+
+                &:hover {
+                    color: $secondary;
+                }
+
+                @include Responesive(LG) {
+                    display: inline-block;
+                }
+            }
+        }
+
+        ul {
+            padding: 0 20px;
+
+            li {
+                a {
+                    padding: 13px 20px 13px 60px;
+                    display: block;
+                    position: relative;
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    color: #252525;
+                    border-radius: 5px;
+                    line-height: 26px;
+                    border-radius: 8px;
+                    cursor: pointer;
+
+                    .icon {
+                        position: absolute;
+                        top: 50%;
+                        transform: translateY(-50%);
+                        left: 20px;
+                        color: $primary;
+                    }
+
+                    .text {}
+
+                    &:hover {
+                        background-color: #edf0f9;
+                    }
+
+                    &.active {
+                        background-color: $primary;
+                        color: white;
+
+                        .icon {
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    .dashboard__header {
+        position: absolute;
+        top: 0;
+        left: 320px;
+        width: calc(100% - 320px);
+        height: 100px;
+        box-shadow: 0 2px 15px rgb(51 51 51 / 5%);
+        padding: 30px 20px;
+        z-index: 99;
+        background-color: white;
+
+        display: flex;
+        align-items: center;
+
+        @include Responesive(LG) {
+            width: 100%;
+            left: 0;
+        }
+
+        .header-btnToggle {
+            display: none;
+            font-size: 3rem;
+            color: $primary;
+            margin-right: 20px;
+            cursor: pointer;
+
+            &:hover {
+                color: $secondary;
+            }
+
+            @include Responesive(LG) {
+                display: initial;
+            }
+        }
+
+        .header-avatar {
+            width: 50px;
+            height: 50px;
+            background: $primary;
+            line-height: 53px;
+            color: white;
+            text-align: center;
+            font-size: 3rem;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .header-user {
+            line-height: 1.5;
+
+            .header-user__name {
+                font-size: 1.5rem;
+                font-weight: 500;
+            }
+
+            .header-user__email {
+                font-size: 1.1rem;
+            }
+        }
+    }
+
+    .dashboard__content {
+        position: absolute;
+        top: 100px;
+        left: 320px;
+        min-height: calc(100vh - 100px);
+        max-height: 100vh;
+        width: calc(100% - 320px);
+        background-color: #f2f4fa;
+
+        @include Responesive(LG) {
+            width: 100%;
+            left: 0;
+        }
+    }
+}

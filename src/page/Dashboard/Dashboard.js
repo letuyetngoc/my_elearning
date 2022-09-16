@@ -32,7 +32,9 @@ export default function Dashboard() {
                             <div className='item-img'>
                                 <img src="https://htmldemo.net/edumall/assets/images/instructor-dashboard-preview.png" alt="..." />
                             </div>
-                            <button className='btn btn__dashboard'>Login as Admin</button>
+                            <Link to='/dashboardAdmin'>
+                                <button className='btn btn__dashboard'>Login as Admin</button>
+                            </Link>
                         </TitleComponent>
                     </div>
                 </div>
