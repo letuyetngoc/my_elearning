@@ -2,6 +2,7 @@
 @import './helpers/variables.scss';
 @import './helpers/mixin';
 // vendors
+@import 'react-toastify/dist/ReactToastify.css';
 @import 'aos/dist/aos.css';
 @import 'antd/dist/antd.css';
 // base
@@ -9,6 +10,9 @@
 // components
 @import './component/animation';
 @import './component/text';
+@import './component/loading';
+@import './component/modal';
+@import './component/select';
 // pages
 @import './page/listCourseItem';
 @import './page/dashboardStudent';
@@ -19,6 +23,9 @@
 @import './page/updateInfo';
 @import './page/dashboardAdmin';
 @import './page/listUser';
+@import './page/addUser';
+@import './page/allCourses';
+@import './page/addCourse';
 
 //template
 @import './template/homeTemplate.scss';

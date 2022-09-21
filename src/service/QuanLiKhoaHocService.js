@@ -14,5 +14,14 @@ class QuanLiKhoaHocService extends BaseService {
     LayThongTinKhoaHoc = (maKhoaHoc) => {
         return this.get(`api/QuanLyKhoaHoc/LayThongTinKhoaHoc?maKhoaHoc=${maKhoaHoc}`)
     }
+    LayDanhSachKhoaHoc = () => {
+        return this.get(`api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?MaNhom=${GROUP}`)
+    }
+    LayDanhSachKhoaHocTheoTen = (tenKhoaHoc) => {
+        return this.get(`api/QuanLyKhoaHoc/LayDanhSachKhoaHoc?tenKhoaHoc=${tenKhoaHoc}&MaNhom=${GROUP}`)
+    }
+    XoaKhoaHoc = (maKhoaHoc) => {
+        return this.delete(`api/QuanLyKhoaHoc/XoaKhoaHoc?MaKhoaHoc=${maKhoaHoc}`)
+    }
 }
 export const quanLiKhoaHocService = new QuanLiKhoaHocService()

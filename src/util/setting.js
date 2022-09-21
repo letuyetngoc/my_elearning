@@ -2,4 +2,4 @@ export const TOKEN_CYBERSOFT = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0ZW5Mb3A
 export const DOMAIN = 'https://elearningnew.cybersoft.edu.vn'
 export const GROUP = 'GP01'
 export const USER_LOGIN = 'USER_LOGIN'
-export const ACCESS_TOKEN = 'ACCESS_TOKEN'
+export const ACCESS_TOKEN = 'ACCESS_TOKEN_ELEARNING'

@@ -64,6 +64,21 @@
             padding: 0 20px;
 
             li {
+                .title {
+                    padding: 13px 20px 13px 0;
+                    text-align: left;
+
+                    .textTitle {
+                        text-transform: uppercase;
+                        letter-spacing: 1px;
+                        font-size: 1.5rem;
+                        font-weight: 400;
+                        color: #252525;
+                        padding: 10px 20px;
+                        display: block;
+                    }
+                }
+
                 a {
                     padding: 13px 20px 13px 60px;
                     display: block;
@@ -78,13 +93,14 @@
 
                     .icon {
                         position: absolute;
-                        top: 50%;
+                        top: 55%;
                         transform: translateY(-50%);
                         left: 20px;
                         color: $primary;
+                        font-size: 1.8rem;
                     }
 
-                    .text {}
+
 
                     &:hover {
                         background-color: #edf0f9;

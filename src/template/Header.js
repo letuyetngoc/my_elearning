@@ -1,12 +1,11 @@
 import React, { memo, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { USER_LOGIN } from '../util/setting'
-
-const userLogin = JSON.parse(localStorage.getItem(USER_LOGIN))
+import useAcountInfo from '../hooks/useAcountInfo'
 
 function Header() {
     const [isSticyMenu, setIsStickyMenu] = useState(false)
     const navigate = useNavigate()
+    const userLogin = useAcountInfo()
 
     useEffect(() => {
         const handleCroll = () => {
@@ -17,6 +16,7 @@ function Header() {
             window.removeEventListener('scroll', handleCroll)
         }
     }, [])
+
     return (
         <>
             <div className={`header ${isSticyMenu && 'sticky'}`}>

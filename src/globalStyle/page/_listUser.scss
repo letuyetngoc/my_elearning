@@ -46,8 +46,8 @@
             background-color: white;
 
             .action-icon {
+                text-align: center;
                 font-size: 1.8rem;
-                width: 80px;
 
                 .icon {
                     margin-right: 4px;
@@ -58,18 +58,8 @@
                     }
                 }
 
-                .action-icon__info {
-                    color: $primary;
-
-                }
-
                 .action-icon__delete {
                     color: red;
-
-                }
-
-                .action-icon__edit {
-                    color: $secondary;
 
                 }
             }

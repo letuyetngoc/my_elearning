@@ -1,0 +1,172 @@
+.allCourses {
+    .containerDashboard {
+        .contentDashboards {
+            .allCourses__search {
+                max-width: 100%;
+                width: 500px;
+                margin: 0 auto;
+                margin-bottom: 20px;
+
+                position: relative;
+
+                input {
+                    width: 100%;
+                    height: 40px;
+                    padding: 10px 40px;
+                    border: 1px solid #eee;
+                    border-radius: 4px;
+                    font-size: 1.5rem;
+
+                    &:focus-visible {
+                        outline: 1px solid $primary;
+                    }
+                }
+
+                .icon-search {
+                    display: inline-block;
+                    position: absolute;
+                    left: 10px;
+                    top: 9px;
+                    font-size: 18px;
+
+                }
+            }
+
+            .allCourses__list {
+                .allCourses__item {
+                    display: flex;
+                    padding: 20px;
+                    border-radius: 5px;
+                    border: 1px solid #ededed;
+                    background-color: #FFFFFF;
+                    max-width: 900px;
+                    margin-bottom: 10px;
+                    cursor: pointer;
+                    transition: all 1s ease;
+
+                    &:hover {
+                        box-shadow: $shadown;
+
+                        .item-img {
+                            img {
+                                transform: scale(1.2);
+                                transition: all 1s ease;
+                            }
+                        }
+                    }
+
+                    @include Responesive(MD) {
+                        display: block;
+                    }
+
+                    .item-img {
+                        height: 160px;
+                        width: 240px;
+                        border-radius: 4px;
+                        overflow: hidden;
+
+                        @include Responesive(MD) {
+                            width: 100%;
+                        }
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            transition: all 1s ease;
+                        }
+                    }
+
+                    .item-content {
+                        flex: 1;
+                        padding-left: 30px;
+
+                        @include Responesive(MD) {
+                            padding-left: 0;
+                            padding-top: 20px;
+                        }
+
+                        .item-content__title {
+                            font-size: 2rem;
+                            font-weight: 500;
+                            line-height: 1.67;
+                            margin-bottom: 10px;
+                        }
+
+                        .item-content__date {
+                            margin-bottom: 10px;
+                            color: #9aa5b3;
+                            font-weight: 500;
+                            font-size: 1.5rem;
+                        }
+
+                        ul {
+                            display: flex;
+                            flex-wrap: wrap;
+                            justify-content: flex-start;
+
+                            li {
+                                flex-shrink: 0;
+                                flex-basis: 130px;
+                                font-size: 1.5rem;
+                                color: #9aa5b3;
+                                font-weight: 500;
+
+                            }
+                        }
+
+                        .item-content__footer {
+                            display: flex;
+                            justify-content: space-between;
+                            margin-top: 24px;
+
+                            .price {
+                                font-size: 18px;
+                                font-weight: 700;
+                                color: red;
+                            }
+
+                            .action {
+                                display: flex;
+
+                                .action-item {
+                                    display: flex;
+                                    align-items: center;
+
+                                    border: 1px solid #eee;
+                                    border-radius: 4px;
+                                    padding: 2px 12px;
+                                    font-size: 1.3rem;
+                                    font-weight: 500;
+                                    line-height: 26px;
+                                    color: #7e7e7e;
+                                    margin-right: 10px;
+                                    cursor: pointer;
+                                    transition: $smooth;
+
+                                    .icon {
+                                        margin-right: 5px;
+                                        font-size: 1.6rem;
+                                    }
+
+                                    &:hover {
+                                        color: white;
+
+                                        &.action-item--edit {
+                                            background-color: $primary;
+                                            transition: $smooth;
+                                        }
+
+                                        &.action-item--delete {
+                                            background-color: #d9534f;
+                                            transition: $smooth;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

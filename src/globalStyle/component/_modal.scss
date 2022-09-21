@@ -1,0 +1,52 @@
+.popupModal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(9, 30, 66, 0.54);
+    overflow: hidden auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    display: flex;
+    justify-content: center;
+
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .popupModal__content {
+        position: relative;
+        z-index: 1001;
+        width: 100%;
+
+        @include Responesive(SM) {
+            width: 90%;
+            padding: 0;
+        }
+
+        height: fit-content;
+        max-width: 700px;
+        border-radius: 8px;
+
+        background-color: rgb(255, 255, 255);
+        box-shadow: rgb(0 0 0 / 10%) 0px 5px 10px 0px;
+        border-radius: 3px;
+        animation: appear 0.3s linear;
+
+    }
+}
+
+@keyframes appear {
+    0% {
+        transform: translateY(-50px);
+        display: none;
+    }
+
+    100% {
+        transform: translateY(0);
+        display: initial;
+    }
+}

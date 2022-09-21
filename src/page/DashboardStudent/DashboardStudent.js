@@ -3,9 +3,10 @@ import { useEffect } from 'react'
 import { BsHouseFill } from 'react-icons/bs'
 import { FaUserAlt } from 'react-icons/fa'
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import useAcountInfo from '../../hooks/useAcountInfo'
+import { ACCESS_TOKEN, USER_LOGIN } from '../../util/setting'
 
 export default function DashboardStudent({ Component }) {
 
@@ -13,6 +14,7 @@ export default function DashboardStudent({ Component }) {
     const [activeClass, setActiveClass] = useState(false)
     const active = activeClass ? 'active' : ''
 
+    const navigate = useNavigate()
 
     const handleActiveClass = () => {
         setActiveClass(!activeClass)
@@ -56,7 +58,12 @@ export default function DashboardStudent({ Component }) {
                         </NavLink>
                     </li>
                     <li>
-                        <Link to='/dashboardStudent' >
+                        <Link to='/dashboardStudent' onClick={() => {
+                            localStorage.removeItem(USER_LOGIN)
+                            localStorage.removeItem(ACCESS_TOKEN)
+                            navigate('/')
+                            window.location.reload()
+                        }}>
                             <span className='icon'>
                                 <BsHouseFill />
                             </span>

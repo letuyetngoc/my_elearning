@@ -1,10 +1,11 @@
 import React, { memo, useEffect, useMemo, useState } from 'react'
-import { Table, Tooltip } from 'antd';
+import { Spin, Table, Tooltip } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllUsersAction, searchUsersAction } from '../../redux/actions/quanLiNguoiDungAction';
+import { deleteUserAction, getAllUsersAction, searchUsersAction } from '../../redux/actions/quanLiNguoiDungAction';
 import { BsSearch } from 'react-icons/bs'
-import { AiOutlineDelete, AiFillEdit, AiOutlineInfoCircle } from 'react-icons/ai'
+import { AiOutlineDelete } from 'react-icons/ai'
 import useDebounce from '../../hooks/useDebounce';
+import { confirmMessage } from '../../components/message';
 
 const columns = [
     {
@@ -67,18 +68,25 @@ function ListUsers() {
     const dispatch = useDispatch()
 
     const [searchValue, setSearchValue] = useState('')
+
     const searchDebounce = useDebounce(searchValue, 500)
 
     const { arrAllUsers } = useSelector(state => state.QuanLiNguoiDungReducer)
+    const { isLoading } = useSelector(state => state.LoadingReducer)
 
-    useEffect(() => {
-        dispatch(getAllUsersAction)
-    }, [])
 
     useEffect(() => {
         if (searchDebounce) dispatch(searchUsersAction(searchDebounce))
         if (searchDebounce === '') dispatch(getAllUsersAction)
     }, [searchDebounce])
+
+    useEffect(() => {
+        dispatch(getAllUsersAction)
+    }, [])
+
+    const handleDeleteUser = (account) => {
+        return () => dispatch(deleteUserAction(account))
+    }
 
     const data = useMemo(() => {
         return arrAllUsers.map((user, index) => ({
@@ -89,16 +97,10 @@ function ListUsers() {
             soDt: user.soDt,
             maLoaiNguoiDung: user.maLoaiNguoiDung,
             action: <div className='action-icon'>
-                <Tooltip placement="top" title="Infomation">
-                    <AiOutlineInfoCircle className='icon action-icon__info' />
-                </Tooltip>
-                <Tooltip placement="top" title="Delete">
+                <Tooltip placement="top" title="Delete" onClick={() => confirmMessage('Are you sure to delete this user?', handleDeleteUser(user.taiKhoan))}>
                     <AiOutlineDelete className='icon action-icon__delete' />
                 </Tooltip>
-                <Tooltip placement="top" title="Edit">
-                    <AiFillEdit className='icon action-icon__edit' />
-                </Tooltip>
-            </div>
+            </div >
         }))
     }, [arrAllUsers])
 
@@ -113,7 +115,9 @@ function ListUsers() {
                     </div>
                 </div>
                 <div className='listUsers__table'>
-                    <Table columns={columns} dataSource={data} />
+                    <Spin spinning={isLoading} tip='Loading...'>
+                        <Table columns={columns} dataSource={data} />
+                    </Spin>
                 </div>
             </div>
         </div>
