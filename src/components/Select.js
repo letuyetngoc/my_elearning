@@ -3,9 +3,10 @@ import { useRef } from 'react'
 import { useState } from 'react'
 import { MdArrowDropDown } from 'react-icons/md'
 
-export default function Select({ children }) {
 
-    const [valueSelect, setValueSelect] = useState('Choose')
+export const Select = ({ defaultValue, options, onClick }) => {
+
+    const [valueSelect, setValueSelect] = useState(defaultValue || '')
     const [isOption, setIsOption] = useState(false)
     const activeClass = isOption ? 'active' : ''
 
@@ -26,24 +27,37 @@ export default function Select({ children }) {
     }, [])
 
     const handleChangeValue = e => {
-        setValueSelect(e.target.dataset.value)
+        setValueSelect(() => {
+            const { value } = e.target.dataset
+            let newValue = ''
+            if (value == 'HV') {
+                newValue = 'Student'
+            } else if (value == 'GV') {
+                newValue = 'Teacher'
+            } else (newValue = value)
+            return newValue
+        })
         setIsOption(false)
     }
+
+    const handleChangeSelect = (e) => {
+        console.log(e.target.dataset.value)
+    }
+
     return (
         <>
             <div className={`select ${activeClass}`} onClick={() => setIsOption(!isOption)} ref={sellectTag}>
                 <MdArrowDropDown className='icon' />
                 <div>{valueSelect}</div>
             </div>
-            {isOption && <div className='option'>
-                {/* <Option value='1' onClick={handleChangeValue}>1</Option>
-                <Option value='2' onClick={handleChangeValue}>2</Option>
-                <Option value='3' onClick={handleChangeValue}>3</Option> */}
-                {children}
+            {isOption && <div className='option' onClick={onClick}>
+                {options && options.map((item, index) => {
+                    return <Option key={index} value={item.value} onClick={handleChangeValue} >{item.label}</Option>
+                })}
             </div>}
         </>
     )
 }
 export const Option = ({ children, value, onClick }) => {
-    return <div className='option__item' data-value={value} onClick={onClick}>{children}</div>
+    return <div className='option__item' data-value={value} onClick={onClick} >{children}</div>
 }

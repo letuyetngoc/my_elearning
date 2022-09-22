@@ -80,10 +80,13 @@ export const deleteUserAction = (account) => {
 export const addUserAction = (userInfo) => {
     return async (dispatch) => {
         try {
+            dispatch(startLoading())
             await quanLiNguoiDungService.ThemNguoiDung(userInfo)
+            dispatch(endLoading())
             successMessage('Add user successfully!')
             dispatch(getAllUsersAction)
         } catch (error) {
+            dispatch(endLoading())
             const { data } = error.response
             errorMessage(data || 'An error occurred, please try again!')
         }
