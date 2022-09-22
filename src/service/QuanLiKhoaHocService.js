@@ -23,5 +23,8 @@ class QuanLiKhoaHocService extends BaseService {
     XoaKhoaHoc = (maKhoaHoc) => {
         return this.delete(`api/QuanLyKhoaHoc/XoaKhoaHoc?MaKhoaHoc=${maKhoaHoc}`)
     }
+    ThemKhoaHoc = (data) => {
+        return this.post('api/QuanLyKhoaHoc/ThemKhoaHoc', data)
+    }
 }
 export const quanLiKhoaHocService = new QuanLiKhoaHocService()

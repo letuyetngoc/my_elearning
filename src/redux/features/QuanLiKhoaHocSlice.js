@@ -5,7 +5,8 @@ const QUAN_LI_KHOA_HOC = 'QUAN_LI_KHOA_HOC'
 const initialState = {
     arrCourseItem: [],
     courseDetail: {},
-    arrAllCourses: []
+    arrAllCourses: [],
+    arrCatalogCourse: []
 }
 export const QuanLiKhoaHocSlice = createSlice({
     name: QUAN_LI_KHOA_HOC,
@@ -19,8 +20,11 @@ export const QuanLiKhoaHocSlice = createSlice({
         },
         getAllCourses: (state, action) => {
             state.arrAllCourses = action.payload
+        },
+        getCatalogCourse: (state, action) => {
+            state.arrCatalogCourse = action.payload
         }
     }
 })
-export const { getArrCourseItem, getCourseDetail, getAllCourses } = QuanLiKhoaHocSlice.actions
+export const { getArrCourseItem, getCourseDetail, getAllCourses, getCatalogCourse } = QuanLiKhoaHocSlice.actions
 export default QuanLiKhoaHocSlice.reducer

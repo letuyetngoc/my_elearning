@@ -24,6 +24,8 @@
 .option {
     position: absolute;
     z-index: 2000;
+    max-height: 200px;
+    overflow-y: scroll;
     width: 100%;
     font-size: 1.5rem;
     outline: none;
@@ -32,6 +34,15 @@
     border-radius: 4px;
     cursor: pointer;
     background-color: white;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #dddee4;
+    }
+
 
     .option__item {
         padding: 10px;

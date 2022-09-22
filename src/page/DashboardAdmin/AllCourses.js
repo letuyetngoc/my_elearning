@@ -6,6 +6,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { confirmMessage } from '../../components/message'
 import useDebounce from '../../hooks/useDebounce'
 import { deletecourseAction, getAllCoursesAction, searchCoursesAction } from '../../redux/actions/quanLiKhoaHocAction'
+import { appearModal } from '../../redux/features/ModalSlice'
+import UpdateCourse from './UpdateCourse'
 
 export default function AllCourses() {
     const dispatch = useDispatch()
@@ -59,7 +61,9 @@ export default function AllCourses() {
                                             <div className='item-content__footer'>
                                                 <div className='price'>100$</div>
                                                 <div className='action'>
-                                                    <div className='action-item action-item--edit'>
+                                                    <div className='action-item action-item--edit' onClick={() => {
+                                                        dispatch(appearModal(<UpdateCourse />))
+                                                    }}>
                                                         <AiFillEdit className='icon' />
                                                         <span>Edit</span>
                                                     </div>

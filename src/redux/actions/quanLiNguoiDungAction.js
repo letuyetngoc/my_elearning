@@ -1,4 +1,3 @@
-import { message } from 'antd'
 import { errorMessage, successMessage } from '../../components/message'
 import { quanLiNguoiDungService } from '../../service/QuanLiNguoiDungService'
 import { endLoading, startLoading } from '../features/LoadingSlice'

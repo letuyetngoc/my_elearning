@@ -3,19 +3,15 @@ import React, { useEffect, useMemo } from 'react'
 import { useDispatch, useSelector, } from 'react-redux';
 import { GROUP } from '../../util/setting'
 import * as Yup from 'yup';
-import { addCourseAction, getCatalogueCoursesAction } from '../../redux/actions/quanLiKhoaHocAction';
+import { getCatalogueCoursesAction } from '../../redux/actions/quanLiKhoaHocAction';
 import { DatePicker, InputNumber } from 'antd';
 import { Select } from '../../components/Select';
 import { getAllUsersAction } from '../../redux/actions/quanLiNguoiDungAction';
 
-export default function AddCourse() {
+export default function UpdateCourse() {
     const dispatch = useDispatch()
     const { arrAllUsers } = useSelector(state => state.QuanLiNguoiDungReducer)
     const { arrCatalogCourse } = useSelector(state => state.QuanLiKhoaHocReducer)
-
-    useEffect(() => {
-        window.scrollTo(0, 0)
-    }, [])
 
     useEffect(() => {
         dispatch(getAllUsersAction)
@@ -56,7 +52,7 @@ export default function AddCourse() {
     });
 
     return (
-        <div className='addCourse'>
+        <div className='updateCourse'>
             <div className='containerDashboard'>
                 <div className='contentDashboard'>
                     <Formik
@@ -76,57 +72,56 @@ export default function AddCourse() {
                         validationSchema={validateForm}
                         onSubmit={(values) => {
                             console.log('value', values)
-                            dispatch(addCourseAction(values))
                         }}
                     >
                         {({ errors, touched, setFieldValue }) => (
                             <Form >
                                 <div className='contentDashboard__list'>
-                                    <div className='addCourse__group'>
-                                        <div className='addCourse__group-item'>
+                                    <div className='updateCourse__group'>
+                                        <div className='updateCourse__group-item'>
                                             <label>CourseID</label>
                                             <Field name="maKhoaHoc" className='input' />
                                             {errors.maKhoaHoc && touched.maKhoaHoc ? (<div className='textError'>{errors.maKhoaHoc}</div>) : null}
                                         </div>
-                                        <div className='addCourse__group-item'>
+                                        <div className='updateCourse__group-item'>
                                             <label>Aliase</label>
                                             <Field name="biDanh" className='input' />
                                             {errors.biDanh && touched.biDanh ? (<div className='textError'>{errors.biDanh}</div>) : null}
                                         </div>
-                                        <div className='addCourse__group-item'>
+                                        <div className='updateCourse__group-item'>
                                             <label>Course name</label>
                                             <Field name="tenKhoaHoc" className='input' />
                                             {errors.tenKhoaHoc && touched.tenKhoaHoc ? (<div className='textError'>{errors.tenKhoaHoc}</div>) : null}
                                         </div>
-                                        <div className='addCourse__group-item'>
+                                        <div className='updateCourse__group-item'>
                                             <label>Views</label>
                                             <Field name="luotXem" className='input' />
                                             {errors.luotXem && touched.luotXem ? (<div className='textError'>{errors.luotXem}</div>) : null}
                                         </div>
-                                        <div className='addCourse__group-item'>
+                                        <div className='updateCourse__group-item'>
                                             <label>Date</label>
                                             <DatePicker onChange={(date, dateString) => setFieldValue('ngayTao', dateString)} />
                                         </div>
-                                        <div className='addCourse__group-item'>
+                                        <div className='updateCourse__group-item'>
                                             <label>Rating</label>
                                             <InputNumber min={1} max={10} defaultValue={0} onChange={(value) => setFieldValue('danhGia', value)} />
                                         </div>
                                     </div>
-                                    <div className='addCourse__group'>
-                                        <div className='addCourse__group-item'>
+                                    <div className='updateCourse__group'>
+                                        <div className='updateCourse__group-item'>
                                             <label>Course catalogue</label>
                                             <Select defaultValue="Choose course catalogue" options={arrCatalogueCourse} onClick={e => setFieldValue('maDanhMucKhoaHoc', e.target.dataset.value)} />
                                         </div>
-                                        <div className='addCourse__group-item'>
+                                        <div className='updateCourse__group-item'>
                                             <label>Account creater</label>
                                             <Select defaultValue="Choose account creater" options={arrAccountCreater} onClick={e => setFieldValue('taiKhoanNguoiTao', e.target.dataset.value)} />
                                         </div>
-                                        <div className='addCourse__group-item'>
+                                        <div className='updateCourse__group-item'>
                                             <label>Description</label>
                                             <textarea name="moTa" className='textArea' onChange={(e) => setFieldValue('moTa', e.target.value)} />
                                             {errors.moTa && touched.moTa ? (<div className='textError'>{errors.moTa}</div>) : null}
                                         </div>
-                                        <div className='addCourse__group-item'>
+                                        <div className='updateCourse__group-item'>
                                             <label>Image</label>
                                             <input name="hinhAnh" type='file' onChange={(e) => {
                                                 const { files } = e.target

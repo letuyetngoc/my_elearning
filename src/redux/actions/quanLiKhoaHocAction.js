@@ -1,11 +1,10 @@
-import { message } from 'antd'
 import { history } from '../../App'
-import { errorMessage } from '../../components/message'
+import { errorMessage, successMessage } from '../../components/message'
 import { quanLiKhoaHocService } from '../../service/QuanLiKhoaHocService'
 import { endLoading, startLoading } from '../features/LoadingSlice'
-import { getAllCourses, getArrCourseItem, getCourseDetail } from '../features/QuanLiKhoaHocSlice'
+import { getAllCourses, getArrCourseItem, getCatalogCourse, getCourseDetail } from '../features/QuanLiKhoaHocSlice'
 
-export const handleClickCourse = (maDanhMuc) => {
+export const handleClickCourseAction = (maDanhMuc) => {
     return async (dispatch) => {
         try {
             dispatch(startLoading())
@@ -20,6 +19,19 @@ export const handleClickCourse = (maDanhMuc) => {
         }
     }
 }
+export const getCatalogueCoursesAction = async (dispatch) => {
+    try {
+        dispatch(startLoading())
+        const result = await quanLiKhoaHocService.LayDanhMucKhoaHoc()
+        dispatch(endLoading())
+        const { data } = result || []
+        dispatch(getCatalogCourse(data))
+    } catch (error) {
+        dispatch(endLoading())
+        console.log('error', error)
+    }
+}
+
 export const getInfoCourseAction = (maKhoaHoc) => {
     return async (dispatch) => {
         try {
@@ -63,14 +75,31 @@ export const searchCoursesAction = (nameCourse) => {
     }
 }
 export const deletecourseAction = (courseId) => {
-    return async () => {
+    return async (dispatch) => {
         try {
             const result = await quanLiKhoaHocService.XoaKhoaHoc(courseId)
-            console.log('result', result)
             const { data } = result
+            successMessage(data)
+            dispatch(getAllCoursesAction)
         } catch (error) {
             const { data } = error.response
             errorMessage(data || 'An error occurred, please try again!')
+        }
+    }
+}
+export const addCourseAction = (data) => {
+    return async (dispatch) => {
+        try {
+            dispatch(startLoading())
+            const result = await quanLiKhoaHocService.ThemKhoaHoc(data)
+            dispatch(endLoading())
+            successMessage('Add course successfull!')
+            dispatch(getAllCoursesAction)
+        } catch (error) {
+            dispatch(endLoading())
+            const { data } = error.response
+            errorMessage(data || 'An error occurred, please try again!')
+            console.log('error', error)
         }
     }
 }

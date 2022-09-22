@@ -1,41 +1,27 @@
 import { Spin } from 'antd'
 import React, { memo, useEffect } from 'react'
-import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Title, TitleComponent, TitleContent, TitleMarkNumber } from '../../components/Text'
-import { handleClickCourse } from '../../redux/actions/quanLiKhoaHocAction'
-import { endLoading, startLoading } from '../../redux/features/LoadingSlice'
-import { quanLiKhoaHocService } from '../../service/QuanLiKhoaHocService'
+import { getCatalogueCoursesAction, handleClickCourseAction } from '../../redux/actions/quanLiKhoaHocAction'
 
 function Courses() {
 
-    const [arrCourses, setArrCourses] = useState('')
     const dispatch = useDispatch()
 
-    // const { isLoading } = useSelector(state => state.LoadingReducer)
+    const { arrCatalogCourse } = useSelector(state => state.QuanLiKhoaHocReducer)
+    const { isLoading } = useSelector(state => state.LoadingReducer)
 
     useEffect(() => {
         window.scrollTo(0, 800)
     }, [])
 
     useEffect(() => {
-        (async () => {
-            try {
-                // dispatch(startLoading(true))
-                const result = await quanLiKhoaHocService.LayDanhMucKhoaHoc()
-                // dispatch(endLoading(false))
-                const { data } = result
-                setArrCourses(data)
-            } catch (error) {
-                // dispatch(endLoading(false))
-                console.log('error', error)
-            }
-        })()
+        dispatch(getCatalogueCoursesAction)
     }, [])
 
     return (
         <div id='courses'>
-            <Spin spinning={false} tip='Loading ...'>x
+            <Spin spinning={isLoading} tip='Loading ...'>
                 <div className='container'>
                     <div data-aos="fade-up" data-aos-duration="1000">
                         <TitleComponent className='courses__title' >
@@ -45,10 +31,10 @@ function Courses() {
                         <TitleContent>MyElearning provide users with <strong>06+ unique and specialized courses</strong> focusing on educational centers and online courses</TitleContent>
                     </div>
                     <div className='courses__list' data-aos="fade-up" data-aos-duration="1000">
-                        {arrCourses && arrCourses.map((course, index) => {
+                        {arrCatalogCourse && arrCatalogCourse.map((course, index) => {
                             return <div className='list-item' key={index} onClick={() => {
                                 localStorage.setItem('tenDanhMuc', course.tenDanhMuc)
-                                dispatch(handleClickCourse(course.maDanhMuc))
+                                dispatch(handleClickCourseAction(course.maDanhMuc))
                             }}>
                                 <div className='list-item__img'>
                                     <img src='https://htmldemo.net/edumall/assets/images/home-main-preview.jpg' />

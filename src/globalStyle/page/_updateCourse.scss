@@ -1,6 +1,12 @@
-.addCourse {
+.updateCourse {
     .containerDashboard {
+        background-color: white;
+        padding: 0;
+        padding-top: 20px;
+
         .contentDashboard {
+            border: none;
+
             .contentDashboard__list {
                 display: flex;
                 justify-content: flex-start;
@@ -10,10 +16,10 @@
                     display: block;
                 }
 
-                .addCourse__group {
+                .updateCourse__group {
                     flex: 1;
 
-                    .addCourse__group-item {
+                    .updateCourse__group-item {
                         position: relative;
                         width: 100%;
                         font-size: 1.5rem;
