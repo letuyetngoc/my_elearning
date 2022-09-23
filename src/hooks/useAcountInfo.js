@@ -1,4 +1,3 @@
-import React from 'react'
 import { USER_LOGIN } from '../util/setting'
 
 export default function useAcountInfo() {

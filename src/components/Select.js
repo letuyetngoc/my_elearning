@@ -15,7 +15,7 @@ export const Select = ({ defaultValue, options, onClick }) => {
     useEffect(() => {
 
         const handleClick = e => {
-            if (!sellectTag.current.contains(e.target)) {
+            if (!sellectTag?.current?.contains(e.target)) {
                 return setIsOption(false)
             }
         }

@@ -2,7 +2,7 @@ import { history } from '../../App'
 import { errorMessage, successMessage } from '../../components/message'
 import { quanLiKhoaHocService } from '../../service/QuanLiKhoaHocService'
 import { endLoading, startLoading } from '../features/LoadingSlice'
-import { getAllCourses, getArrCourseItem, getCatalogCourse, getCourseDetail } from '../features/QuanLiKhoaHocSlice'
+import QuanLiKhoaHocSlice, { getAllCourses, getArrCourseItem, getCatalogCourse, getCourseDetail } from '../features/QuanLiKhoaHocSlice'
 
 export const handleClickCourseAction = (maDanhMuc) => {
     return async (dispatch) => {
@@ -69,8 +69,8 @@ export const searchCoursesAction = (nameCourse) => {
             dispatch(getAllCourses(data))
         } catch (error) {
             dispatch(endLoading())
-            const { data } = error.response
-            errorMessage(data || 'An error occurred, please try again!')
+            // const { data } = error.response
+            // errorMessage(data || 'An error occurred, please try again!')
         }
     }
 }
@@ -91,7 +91,7 @@ export const addCourseAction = (data) => {
     return async (dispatch) => {
         try {
             dispatch(startLoading())
-            const result = await quanLiKhoaHocService.ThemKhoaHoc(data)
+            await quanLiKhoaHocService.ThemKhoaHoc(data)
             dispatch(endLoading())
             successMessage('Add course successfull!')
             dispatch(getAllCoursesAction)
@@ -100,6 +100,21 @@ export const addCourseAction = (data) => {
             const { data } = error.response
             errorMessage(data || 'An error occurred, please try again!')
             console.log('error', error)
+        }
+    }
+}
+export const updateCourseAction = (data) => {
+    return async (dispatch) => {
+        try {
+            dispatch(startLoading())
+            await quanLiKhoaHocService.CapNhatKhoaHoc(data)
+            dispatch(endLoading())
+            successMessage('Update course successfull!')
+            dispatch(getAllCoursesAction)
+        } catch (error) {
+            dispatch(endLoading())
+            const { data } = error.response
+            errorMessage(data || 'An error occurred, please try again!')
         }
     }
 }

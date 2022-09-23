@@ -67,7 +67,10 @@
                 }
 
                 .list-item__img {
+                    height: 200px;
+
                     img {
+                        height: 100%;
                         border-radius: 10px;
                     }
                 }

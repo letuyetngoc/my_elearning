@@ -2,8 +2,12 @@ import React from 'react'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Title, TitleComponent, TitleContent, TitleMark } from '../../components/Text'
+import useAcountInfo from '../../hooks/useAcountInfo'
 
 export default function Dashboard() {
+
+    const userLogin = useAcountInfo()
+
     useEffect(() => {
         window.scrollTo(0, 800)
     }, [])
@@ -20,7 +24,7 @@ export default function Dashboard() {
                         <div className='item-img'>
                             <img src="https://htmldemo.net/edumall/assets/images/student-dashboard-preview.png" alt="..." />
                         </div>
-                        <Link to='/dashboardStudent/profile'>
+                        <Link to={userLogin ? '/dashboardStudent/profile' : '/login'}>
                             <button className='btn btn__dashboard'>Login as Student</button>
                         </Link>
                     </div>
@@ -32,7 +36,7 @@ export default function Dashboard() {
                             <div className='item-img'>
                                 <img src="https://htmldemo.net/edumall/assets/images/instructor-dashboard-preview.png" alt="..." />
                             </div>
-                            <Link to='/dashboardAdmin/listUsers'>
+                            <Link to={userLogin ? '/dashboardAdmin/listUsers' : '/login'}>
                                 <button className='btn btn__dashboard'>Login as Admin</button>
                             </Link>
                         </TitleComponent>

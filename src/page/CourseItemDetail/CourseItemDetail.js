@@ -10,7 +10,12 @@ export default function CourseItemDetail() {
         <div className='courseItemDetail'>
             <div className='container' data-aos="fade-up" data-aos-duration="1000">
                 <div className='courseItemDetail__item'>
-                    <img src="https://htmldemo.net/edumall/assets/images/shop/shop-01.jpg" alt="" />
+                    <img src={courseDetail.hinhAnh}
+                        onError={(e) => {
+                            e.target.src = 'https://htmldemo.net/edumall/assets/images/layout/course-layout-05.jpg';
+                            e.target.onError = null;
+                        }}
+                        alt="" />
                 </div>
                 <div className='courseItemDetail__item'>
                     <div className='info-title'>

@@ -6,7 +6,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { confirmMessage } from '../../components/message'
 import useDebounce from '../../hooks/useDebounce'
 import { deletecourseAction, getAllCoursesAction, searchCoursesAction } from '../../redux/actions/quanLiKhoaHocAction'
+import { endLoading, startLoading } from '../../redux/features/LoadingSlice'
 import { appearModal } from '../../redux/features/ModalSlice'
+import { getCourseDetail } from '../../redux/features/QuanLiKhoaHocSlice'
+import { quanLiKhoaHocService } from '../../service/QuanLiKhoaHocService'
 import UpdateCourse from './UpdateCourse'
 
 export default function AllCourses() {
@@ -30,6 +33,22 @@ export default function AllCourses() {
         window.scrollTo(0, 0)
     }, [])
 
+    const getInfoCourse = (maKhoaHoc) => {
+        return async (dispatch) => {
+            try {
+                dispatch(startLoading())
+                const result = await quanLiKhoaHocService.LayThongTinKhoaHoc(maKhoaHoc)
+                dispatch(endLoading())
+                const { data } = result || {}
+                dispatch(getCourseDetail(data))
+                dispatch(appearModal(<UpdateCourse />))
+            } catch (error) {
+                dispatch(endLoading())
+                console.log('error', error)
+            }
+        }
+    }
+
     return (
         <div className='allCourses'>
             <div className='containerDashboard'>
@@ -46,7 +65,12 @@ export default function AllCourses() {
                                 return (
                                     <li className='allCourses__item' key={index}>
                                         <div className='item-img'>
-                                            <img src={`https://picsum.photos/200/300?random=${index}`} alt=".." />
+                                            <img src={course.hinhAnh}
+                                                onError={(e) => {
+                                                    e.target.src = 'https://picsum.photos/200';
+                                                    e.target.onError = null;
+                                                }}
+                                                alt=".." />
                                         </div>
                                         <div className='item-content'>
                                             <h3 className='item-content__title textTruncate'>{course.tenKhoaHoc}</h3>
@@ -62,7 +86,7 @@ export default function AllCourses() {
                                                 <div className='price'>100$</div>
                                                 <div className='action'>
                                                     <div className='action-item action-item--edit' onClick={() => {
-                                                        dispatch(appearModal(<UpdateCourse />))
+                                                        dispatch(getInfoCourse(course.maKhoaHoc))
                                                     }}>
                                                         <AiFillEdit className='icon' />
                                                         <span>Edit</span>
@@ -77,7 +101,6 @@ export default function AllCourses() {
                                     </li>
                                 )
                             })}
-
                         </ul>
                     </Spin>
                 </div>

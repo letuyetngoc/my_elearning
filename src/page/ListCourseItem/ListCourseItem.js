@@ -38,7 +38,12 @@ export default function ListCourseItem() {
                             return (
                                 <div className='list-item' key={index} onClick={() => dispatch(getInfoCourseAction(course.maKhoaHoc))}>
                                     <div className='list-item__img'>
-                                        <img src="https://htmldemo.net/edumall/assets/images/layout/course-layout-05.jpg" alt="" />
+                                        <img src={course.hinhAnh}
+                                            onError={(e) => {
+                                                e.target.src = 'https://htmldemo.net/edumall/assets/images/layout/course-layout-05.jpg';
+                                                e.target.onError = null;
+                                            }}
+                                            alt="" />
                                     </div>
                                     <div className='list-item__text'>
                                         <h3 className='textTruncate'>{course.tenKhoaHoc}</h3>

@@ -53,13 +53,17 @@ function App() {
       <Modal />
       <Routes>
         <Route path="/home" element={<HomeTemplate Component={<Home />} />} />
-        <Route path="/course/:courseId" element={<HomeTemplate Component={<ListCourseItem />} />} />
-        <Route path="/course-detail/:courseId" element={<HomeTemplate Component={<CourseItemDetail />} />} />
-        <Route path="/login/*" element={<Login />} />
-        <Route path="/register/*" element={<Register />} />
+
         <Route path="/courses" element={<HomeTemplate Component={<Courses />} />} />
         <Route path="/feature" element={<HomeTemplate Component={<Feature />} />} />
         <Route path="/dashboard" element={<HomeTemplate Component={<Dashboard />} />} />
+
+        <Route path="/course/:courseId" element={<HomeTemplate Component={<ListCourseItem />} />} />
+        <Route path="/course-detail/:courseId" element={<HomeTemplate Component={<CourseItemDetail />} />} />
+
+        <Route path="/login/*" element={<Login />} />
+        <Route path="/register/*" element={<Register />} />
+
 
         <Route path="/dashboardStudent/*" element={<DashboardStudent />} />
         <Route path="/dashboardStudent/profile" element={<DashboardStudent Component={<Profile />} />} />
@@ -71,8 +75,6 @@ function App() {
         <Route path="/dashboardAdmin/addUser" element={<DashboardAdmin Component={<AddUser />} />} />
         <Route path="/dashboardAdmin/allCourses" element={<DashboardAdmin Component={<AllCourses />} />} />
         <Route path="/dashboardAdmin/addCourse" element={<DashboardAdmin Component={<AddCourse />} />} />
-
-        {/* <Route path="/select" element={<Select />} /> */}
 
         <Route path="" element={<HomeTemplate Component={<Home />} />} />
 
