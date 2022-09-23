@@ -21,6 +21,18 @@
         &:nth-child(2) {
             color: $secondary;
         }
+
+        @include Responesive(SM) {
+            font-size: 3.5rem;
+        }
+
+        @include Responesive(SM) {
+            font-size: 3rem;
+        }
+
+        @include Responesive(SS) {
+            font-size: 2.5rem;
+        }
     }
 
     button {

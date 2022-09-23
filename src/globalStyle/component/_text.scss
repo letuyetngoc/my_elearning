@@ -1,5 +1,6 @@
 .titleComponent {
-    width: 600px;
+    max-width: 600px;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
 }
@@ -10,6 +11,18 @@
     font-weight: 500;
     color: #252525;
     text-align: center;
+
+    @include Responesive(MD) {
+        font-size: 3.5rem;
+    }
+
+    @include Responesive(XS) {
+        font-size: 2.5rem;
+    }
+
+    @include Responesive(SS) {
+        font-size: 2rem;
+    }
 
 }
 
@@ -22,6 +35,18 @@
     text-align: center;
     position: relative;
     padding-bottom: 10px;
+
+    @include Responesive(MD) {
+        font-size: 3.5rem;
+    }
+
+    @include Responesive(XS) {
+        font-size: 2.5rem;
+    }
+
+    @include Responesive(SS) {
+        font-size: 2rem;
+    }
 
     &::before {
         content: "";
@@ -42,6 +67,18 @@
     font-size: 7.2rem;
     font-weight: 700;
     color: #0071dc;
+
+    @include Responesive(MD) {
+        font-size: 5.5rem;
+    }
+
+    @include Responesive(XS) {
+        font-size: 4.5rem;
+    }
+
+    @include Responesive(SS) {
+        font-size: 3rem;
+    }
 }
 
 .titleContent {

@@ -11,6 +11,11 @@
             flex-wrap: wrap;
             --spacing: 30px;
             --column: 2;
+
+            @include Responesive(LG) {
+                --column: 1;
+            }
+
             margin-left: calc(-1 * var(--spacing));
 
             .dashboard__item {

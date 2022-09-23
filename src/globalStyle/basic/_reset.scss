@@ -57,9 +57,22 @@ strong {
 }
 
 .container {
-    max-width: 1200px;
+    width: 1180px;
+    padding: 0 20px;
     margin: 0 auto;
-    width: 100%;
+    max-width: 100%;
+
+    @include Responesive (LG) {
+        padding: 0 30px;
+    }
+
+    @include Responesive (SM) {
+        padding: 0 20px;
+    }
+
+    @include Responesive (XS) {
+        padding: 0 10px;
+    }
 }
 
 .containerDashboard {
