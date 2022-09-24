@@ -10,14 +10,30 @@
             align-items: center;
             padding-bottom: 50px;
 
+            @include Responesive(LG) {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
             .title-content {
                 .title-content__wrap {
                     text-align: left;
-                    width: 580px;
+                    max-width: 580px;
+                    width: 100%;
                     overflow: hidden;
+
+                    @include Responesive(LG) {
+                        text-align: center;
+                    }
 
                     .title-content__number {
                         text-align: left;
+
+                        @include Responesive(LG) {
+                            text-align: center;
+                        }
+
                         background: linear-gradient(90deg, #B4EC51 0%, #429321 100%);
                         -webkit-background-clip: text;
                         color: transparent;
@@ -26,25 +42,46 @@
                     .title-content__title {
                         color: white;
                         text-align: left;
+
+                        @include Responesive(LG) {
+                            text-align: center;
+                        }
                     }
 
                     .title-content__decs {
+
+                        @include Responesive(LG) {
+                            text-align: center;
+                        }
+
                         color: rgba(255, 255, 255, 0.8);
                         text-align: left;
                     }
                 }
             }
 
-            .title-img {}
+            .title-img {
+                width: 400px;
+                max-width: 100%;
+                margin-right: 20px;
+            }
         }
 
         .listCourseItem__list {
             display: flex;
-            justify-content: flex-start;
+            justify-content: center;
             flex-wrap: wrap;
             --spacing: 20px;
             --column: 4;
             margin-left: calc(-1 * var(--spacing));
+
+            @include Responesive(LG) {
+                --column: 2;
+            }
+
+            @include Responesive(XS) {
+                --column: 1;
+            }
 
             .list-item {
                 display: inline-block;
@@ -85,24 +122,6 @@
                         text-align: center;
                     }
                 }
-            }
-
-            .slick-arrow.slick-prev {
-                left: -50px;
-                top: 80px;
-            }
-
-            .slick-arrow.slick-next {
-                right: -50px;
-                top: 80px;
-            }
-
-            .slick-dots li button:before {
-                color: white;
-            }
-
-            .slick-slide {
-                padding-right: 10px;
             }
         }
     }

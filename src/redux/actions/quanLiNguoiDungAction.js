@@ -1,7 +1,7 @@
 import { errorMessage, successMessage } from '../../components/message'
 import { quanLiNguoiDungService } from '../../service/QuanLiNguoiDungService'
 import { endLoading, startLoading } from '../features/LoadingSlice'
-import { getInfoUser, getTypeOfUser, getAllUsers } from '../features/QuanLiNguoiDungSlice'
+import { getInfoUser, getTypeOfUser, getAllUsers, getArrCoursesWaitingApproval } from '../features/QuanLiNguoiDungSlice'
 
 export const getInfoUserAction = async (dispatch) => {
     try {
@@ -91,3 +91,14 @@ export const addUserAction = (userInfo) => {
         }
     }
 }
+export const getCoursesWaitingApproval = (account) => {
+    return async (dispatch) => {
+        try {
+            const result = await quanLiNguoiDungService.LayDanhSachKhoaHocChoXetDuyet(account)
+            const { data } = result
+            dispatch(getArrCoursesWaitingApproval(data))
+        } catch (error) {
+            console.log('error', error)
+        }
+    }
+} 

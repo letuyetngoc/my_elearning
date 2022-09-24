@@ -5,7 +5,8 @@ const QUAN_LI_NGUOI_DUNG = 'QUAN_LI_NGUOI_DUNG'
 const initialState = {
     userInfo: {},
     arrTypeOfUser: [],
-    arrAllUsers: []
+    arrAllUsers: [],
+    arrCoursesWaitingApproval: [],
 }
 export const QuanLiNguoiDungSlice = createSlice({
     name: QUAN_LI_NGUOI_DUNG,
@@ -19,9 +20,11 @@ export const QuanLiNguoiDungSlice = createSlice({
         },
         getAllUsers: (state, action) => {
             state.arrAllUsers = action.payload
+        },
+        getArrCoursesWaitingApproval: (state, action) => {
+            state.arrCoursesWaitingApproval = action.payload
         }
-
     }
 })
-export const { getInfoUser, getTypeOfUser, getAllUsers } = QuanLiNguoiDungSlice.actions
+export const { getInfoUser, getTypeOfUser, getAllUsers, getArrCoursesWaitingApproval } = QuanLiNguoiDungSlice.actions
 export default QuanLiNguoiDungSlice.reducer

@@ -23,6 +23,7 @@ import { ToastContainer } from 'react-toastify';
 import AddUser from './page/DashboardAdmin/AddUser';
 import AllCourses from './page/DashboardAdmin/AllCourses';
 import AddCourse from './page/DashboardAdmin/AddCourse';
+import ActiveCourse from './page/DashboardStudent/ActiveCourse';
 
 //aos
 AOS.init(
@@ -69,6 +70,7 @@ function App() {
         <Route path="/dashboardStudent/profile" element={<DashboardStudent Component={<Profile />} />} />
         <Route path="/dashboardStudent/inroll-courses" element={<DashboardStudent Component={<InrollCourses />} />} />
         <Route path="/dashboardStudent/updateInfo" element={<DashboardStudent Component={<UpdateInfo />} />} />
+        <Route path="/dashboardStudent/active-course" element={<DashboardStudent Component={<ActiveCourse />} />} />
 
         <Route path="/dashboardAdmin" element={<DashboardAdmin />} />
         <Route path="/dashboardAdmin/listUsers" element={<DashboardAdmin Component={<ListUsers />} />} />

@@ -29,5 +29,11 @@ class QuanLiKhoaHocService extends BaseService {
     CapNhatKhoaHoc = (data) => {
         return this.put('api/QuanLyKhoaHoc/CapNhatKhoaHoc', data)
     }
+    HuyGhiDanh = (data) => {
+        return this.post('api/QuanLyKhoaHoc/HuyGhiDanh', data)
+    }
+    DangKyKhoaHoc = (data) => {
+        return this.post('api/QuanLyKhoaHoc/DangKyKhoaHoc', data)
+    }
 }
 export const quanLiKhoaHocService = new QuanLiKhoaHocService()

@@ -5,7 +5,7 @@ import Slider from './Slider'
 
 export default function HomeTemplate({ Component }) {
     useEffect(() => {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 800)
     }, [])
     return (
         <div className='homeTemplate'>

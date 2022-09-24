@@ -1,8 +1,8 @@
 import React from 'react'
 import { useEffect } from 'react'
-import { BsHouseFill } from 'react-icons/bs'
 import { FaUserAlt } from 'react-icons/fa'
-import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
+import { MdSystemUpdateAlt } from 'react-icons/md'
+import { AiOutlineMenu, AiOutlineClose, AiOutlineProfile, AiOutlineUnorderedList, AiOutlineLogout } from 'react-icons/ai'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import useAcountInfo from '../../hooks/useAcountInfo'
@@ -36,7 +36,7 @@ export default function DashboardStudent({ Component }) {
                     <li>
                         <NavLink to='/dashboardStudent/profile' className={({ isActive }) => isActive ? 'active' : ''}>
                             <span className='icon'>
-                                <BsHouseFill />
+                                <AiOutlineProfile />
                             </span>
                             <span className='text'>My Profile</span>
                         </NavLink>
@@ -44,7 +44,7 @@ export default function DashboardStudent({ Component }) {
                     <li>
                         <NavLink to='/dashboardStudent/updateInfo' className={({ isActive }) => isActive ? 'active' : ''}>
                             <span className='icon'>
-                                <BsHouseFill />
+                                <MdSystemUpdateAlt />
                             </span>
                             <span className='text'>Update Infomation</span>
                         </NavLink>
@@ -52,9 +52,17 @@ export default function DashboardStudent({ Component }) {
                     <li>
                         <NavLink to='/dashboardStudent/inroll-courses' className={({ isActive }) => isActive ? 'active' : ''}>
                             <span className='icon'>
-                                <BsHouseFill />
+                                <AiOutlineUnorderedList />
                             </span>
-                            <span className='text'>Enrolled courses</span>
+                            <span className='text'>Course waiting approval</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/dashboardStudent/active-course' className={({ isActive }) => isActive ? 'active' : ''}>
+                            <span className='icon'>
+                                <AiOutlineUnorderedList />
+                            </span>
+                            <span className='text'>Actived Course</span>
                         </NavLink>
                     </li>
                     <li>
@@ -65,7 +73,7 @@ export default function DashboardStudent({ Component }) {
                             window.location.reload()
                         }}>
                             <span className='icon'>
-                                <BsHouseFill />
+                                <AiOutlineLogout />
                             </span>
                             <span className='text'>Log out</span>
                         </Link>

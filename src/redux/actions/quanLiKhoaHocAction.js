@@ -1,8 +1,10 @@
 import { history } from '../../App'
 import { errorMessage, successMessage } from '../../components/message'
 import { quanLiKhoaHocService } from '../../service/QuanLiKhoaHocService'
+import { USER_LOGIN } from '../../util/setting'
 import { endLoading, startLoading } from '../features/LoadingSlice'
-import QuanLiKhoaHocSlice, { getAllCourses, getArrCourseItem, getCatalogCourse, getCourseDetail } from '../features/QuanLiKhoaHocSlice'
+import { getAllCourses, getArrCourseItem, getCatalogCourse, getCourseDetail } from '../features/QuanLiKhoaHocSlice'
+import { getCoursesWaitingApproval } from './quanLiNguoiDungAction'
 
 export const handleClickCourseAction = (maDanhMuc) => {
     return async (dispatch) => {
@@ -69,8 +71,6 @@ export const searchCoursesAction = (nameCourse) => {
             dispatch(getAllCourses(data))
         } catch (error) {
             dispatch(endLoading())
-            // const { data } = error.response
-            // errorMessage(data || 'An error occurred, please try again!')
         }
     }
 }
@@ -111,6 +111,38 @@ export const updateCourseAction = (data) => {
             dispatch(endLoading())
             successMessage('Update course successfull!')
             dispatch(getAllCoursesAction)
+        } catch (error) {
+            dispatch(endLoading())
+            const { data } = error.response
+            errorMessage(data || 'An error occurred, please try again!')
+        }
+    }
+}
+export const unEnrollCourseAction = (info) => {
+    const { taiKhoan } = JSON.parse(localStorage.getItem(USER_LOGIN))
+    return async (dispatch) => {
+        try {
+            dispatch(startLoading())
+            const result = await quanLiKhoaHocService.HuyGhiDanh(info)
+            dispatch(endLoading())
+            const { data } = result
+            successMessage(data)
+            dispatch(getCoursesWaitingApproval({ taiKhoan }))
+        } catch (error) {
+            dispatch(endLoading())
+            const { data } = error.response
+            errorMessage(data || 'An error occurred, please try again!')
+        }
+    }
+}
+export const registerCourseAction = (info) => {
+    return async (dispatch) => {
+        try {
+            dispatch(startLoading())
+            const result = await quanLiKhoaHocService.DangKyKhoaHoc(info)
+            dispatch(endLoading())
+            const { data } = result
+            successMessage(data)
         } catch (error) {
             dispatch(endLoading())
             const { data } = error.response

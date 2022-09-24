@@ -5,16 +5,21 @@
         display: flex;
         justify-content: flex-start;
 
+        @include Responesive(LG) {
+            display: initial;
+        }
+
         .courseItemDetail__item {
             width: 570px;
+            margin: 0 auto;
             max-width: 100%;
-            margin-right: 30px;
 
             img {
                 border: 10px solid #333;
                 border-radius: 20px;
                 box-shadow: 0px 0px 10px 0px rgb(0 0 0 / 50%);
                 width: 100%;
+                margin-bottom: 40px;
             }
 
             .info-title {

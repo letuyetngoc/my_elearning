@@ -21,6 +21,9 @@ export default function ListCourseItem() {
             <Spin spinning={isLoading} tip='Geting course detail ...'>
                 <div className='container' data-aos="fade-up" data-aos-duration="1000">
                     <div className='listCourseItem__title'>
+                        <div className='title-img'>
+                            <img src="https://htmldemo.net/edumall/assets/images/course-laptop-screenshot.png" alt="photo" />
+                        </div>
                         <div className='title-content'>
                             <TitleComponent className='title-content__wrap'>
                                 <TitleMarkNumber className='title-content__number'>{arrCourseItem.length}+</TitleMarkNumber>
@@ -28,9 +31,6 @@ export default function ListCourseItem() {
                                 <Title className='title-content__title textTruncate'>{localStorage.getItem('tenDanhMuc')}</Title>
                                 <TitleContent className='title-content__decs '>Users can choose from our {arrCourseItem.length}+ different course listing layouts for your eLearning platform</TitleContent>
                             </TitleComponent>
-                        </div>
-                        <div className='title-img'>
-                            <img src="https://htmldemo.net/edumall/assets/images/course-laptop-screenshot.png" alt="photo" />
                         </div>
                     </div>
                     <div className='listCourseItem__list'>
