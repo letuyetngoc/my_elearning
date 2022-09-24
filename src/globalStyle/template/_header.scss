@@ -35,7 +35,6 @@
             display: flex;
             justify-content: center;
             align-items: center;
-
             flex-grow: 1;
 
             @include Responesive(LG) {
@@ -88,6 +87,13 @@
                 font-size: 2rem;
                 font-weight: 500;
                 cursor: pointer;
+                background: white;
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                color: $primary;
+                text-align: center;
+                line-height: 40px;
             }
 
             button {
@@ -103,6 +109,7 @@
             font-size: 3.5rem;
             margin-left: 10px;
             cursor: pointer;
+            line-height: 20px;
 
             &:hover {
                 color: $secondary;
@@ -115,6 +122,122 @@
     }
 
 }
+
+.header-responsive {
+    &.active {
+        transform: translateX(0);
+    }
+
+    display: none;
+    transform: translateX(300px);
+    transition: all 0.3s ease;
+
+    @include Responesive(LG) {
+        display: initial;
+    }
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    z-index: 1000;
+    color: white;
+    background-color: #000000e0;
+
+    .header-wrap {
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+
+        .header__logo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: white;
+            color: $primary;
+            width: 100%;
+            height: 80px;
+            padding: 15px 10px;
+
+            a {
+                font-size: 2.5rem;
+                font-weight: 500;
+
+                @include Responesive(XS) {
+                    font-size: 2.5rem;
+                }
+
+            }
+
+            .icon {
+                font-size: 2.5rem;
+                cursor: pointer;
+
+                &:hover {
+                    color: $secondary;
+                }
+            }
+        }
+
+        .header__menu {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+
+            .menu-link {
+                display: block;
+                padding: 25px 17px;
+                font-size: 14px;
+                cursor: pointer;
+
+                &:hover {
+                    span {
+                        &::after {
+                            width: 100%;
+                            left: 0;
+                            right: auto;
+                        }
+                    }
+                }
+
+                span {
+                    position: relative;
+                    padding: 4px 0;
+
+                    &::after {
+                        content: '';
+                        position: absolute;
+                        left: auto;
+                        right: 0;
+                        bottom: 0px;
+                        width: 0;
+                        height: 2px;
+                        background-color: #ffc221;
+                        transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+.overplay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+    width: 100%;
+    height: 100vh;
+    background: #0000008f;
+
+    &.active {
+        display: initial;
+    }
+}
+
 
 .sticky {
     position: fixed;
@@ -129,6 +252,7 @@
         }
 
         .header__menu {
+
             .menu-link {
                 color: black;
 
@@ -151,6 +275,19 @@
                 padding: 0 16px;
                 font-size: 14px;
             }
+
+            .header-user {
+                font-size: 2rem;
+                font-weight: 500;
+                cursor: pointer;
+                background: $primary;
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                color: white;
+                text-align: center;
+                line-height: 40px;
+            }
         }
 
         .toggleBtn {
@@ -159,6 +296,7 @@
             margin-left: 10px;
             cursor: pointer;
             color: $primary;
+            line-height: 20px;
 
             &:hover {
                 color: $secondary;
